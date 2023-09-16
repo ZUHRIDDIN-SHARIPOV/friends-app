@@ -1,11 +1,17 @@
-import { memo } from "react";
+import { memo, useState } from "react";
 import { FaTwitter } from "react-icons/fa";
 import { CgMenuLeft } from "react-icons/cg";
 import { BsLightningChargeFill, BsLightningCharge } from "react-icons/bs";
+import { VscChromeClose } from "react-icons/vsc";
 import "./Header.scss";
 import { NavLink } from "react-router-dom";
 
 const Header = ({ darkMode, checkDark }) => {
+  const [open, setOpen] = useState(false);
+  const menuMode = () => {
+    setOpen(!open);
+  };
+
   return (
     <>
       <header className="site-header">
@@ -32,8 +38,26 @@ const Header = ({ darkMode, checkDark }) => {
                 <NavLink>Support</NavLink>
               </li>
             </ul>
-            <div className="site-header__menu-logo">
-              <CgMenuLeft />
+            <ul className={`site-header__menu-list ${open ? "menu__key" : ""}`}>
+              <li className="site-header__menu-item">
+                <FaTwitter />
+                <h2>My classmates</h2>
+              </li>
+              <li className="site-header__menu-item">
+                <NavLink>Home</NavLink>
+              </li>
+              <li className="site-header__menu-item">
+                <NavLink>Login</NavLink>
+              </li>
+              <li className="site-header__menu-item">
+                <NavLink>Sign Up</NavLink>
+              </li>
+              <li className="site-header__menu-item">
+                <NavLink>Support</NavLink>
+              </li>
+            </ul>
+            <div className="site-header__menu-logo" onClick={menuMode}>
+              {open ? <VscChromeClose /> : <CgMenuLeft />}
             </div>
           </div>
         </div>
