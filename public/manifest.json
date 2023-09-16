@@ -1,11 +1,11 @@
 {
-  "short_name": "React App",
-  "name": "Create React App Sample",
+  "short_name": "My classmates",
+  "name": "My classmates",
   "icons": [
     {
-      "src": "logo192.png",
+      "src": "twitter.svg",
       "type": "image/png",
-      "sizes": "192x192"
+      "sizes": "155x155"
     }
   ],
   "start_url": ".",
