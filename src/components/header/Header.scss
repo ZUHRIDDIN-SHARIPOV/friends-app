@@ -1,0 +1,130 @@
+.site-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 5;
+  background: #fff;
+  transition: 0.3s;
+}
+.site-header__logo {
+  display: flex;
+  align-items: center;
+  column-gap: 7px;
+  transition: 0.3s;
+  svg {
+    width: 37px;
+    height: 37px;
+    transition: 0.3s;
+  }
+  h2 {
+    font-family: Poppins;
+    font-size: 21px;
+    font-weight: 500;
+    transition: 0.3s;
+  }
+}
+.site-header__block {
+  padding-top: 15px;
+  padding-bottom: 17px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  transition: 0.3s;
+}
+.site-header__list {
+  display: flex;
+  align-items: center;
+  column-gap: 70px;
+  transition: 0.3s;
+}
+.site-header__item {
+  a {
+    font-family: Poppins;
+    font-size: 17px;
+    font-weight: 500;
+    color: #000;
+    padding-bottom: 3px;
+    transition: 0.3s;
+  }
+  .active {
+    border-bottom: 2px solid #000;
+    transition: 0.3s;
+  }
+}
+.site-header__item:nth-child(1) svg {
+  width: 27px;
+  height: 27px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+.site-header__menu-logo {
+  display: none;
+  transition: 0.3s;
+}
+
+@media only screen and (max-width: 860px) {
+  .site-header__logo {
+    svg {
+      width: 32px;
+      height: 32px;
+      transition: 0.3s;
+    }
+    h2 {
+      font-size: 19px;
+      transition: 0.3s;
+    }
+  }
+  .site-header__list {
+    column-gap: 55px;
+    transition: 0.3s;
+  }
+  .site-header__item {
+    a {
+      font-size: 15.7px;
+      transition: 0.3s;
+    }
+    .active {
+      border-bottom: 1.5px solid #000;
+      transition: 0.3s;
+    }
+  }
+  .site-header__item:nth-child(1) svg {
+    width: 26px;
+    height: 26px;
+    transition: 0.3s;
+  }
+}
+@media only screen and (max-width: 740px) {
+  .site-header__list {
+    column-gap: 40px;
+    transition: 0.3s;
+  }
+}
+@media only screen and (max-width: 660px) {
+  .site-header__item:nth-child(2) {
+    display: none;
+    transition: 0.3s;
+  }
+  .site-header__item:nth-child(3) {
+    display: none;
+    transition: 0.3s;
+  }
+  .site-header__item:nth-child(4) {
+    display: none;
+    transition: 0.3s;
+  }
+  .site-header__item:nth-child(5) {
+    display: none;
+    transition: 0.3s;
+  }
+  .site-header__menu-logo {
+    display: inline-block;
+    transition: 0.3s;
+    svg {
+      width: 30px;
+      height: 30px;
+      transition: 0.3s;
+    }
+  }
+}
