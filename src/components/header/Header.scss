@@ -120,6 +120,10 @@
     transition: 0.3s;
   }
 }
+.light-hidden {
+  display: none;
+  transition: 0.3s;
+}
 
 @media only screen and (max-width: 860px) {
   .site-header__logo {
