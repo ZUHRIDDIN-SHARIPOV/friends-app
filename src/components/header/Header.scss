@@ -11,6 +11,7 @@
   display: flex;
   align-items: center;
   column-gap: 7px;
+  cursor: pointer;
   transition: 0.3s;
   svg {
     width: 37px;
@@ -131,6 +132,7 @@
   }
 }
 .site-header__menu-item {
+  cursor: pointer;
   a {
     font-family: Poppins;
     font-size: 15.7px;
