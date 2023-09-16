@@ -17,20 +17,21 @@
     width: 37px;
     height: 37px;
     transition: 0.3s;
-    &:hover {
-      color: blueviolet;
-      transition: 0.3s;
-    }
   }
   h2 {
     font-family: Poppins;
     font-size: 21px;
     font-weight: 500;
     transition: 0.3s;
-    &:hover {
+  }
+  &:hover {
+    svg {
       color: blueviolet;
-      transition: 0.3s;
     }
+    h2 {
+      color: blueviolet;
+    }
+    transition: 0.3s;
   }
 }
 .site-header__block {
@@ -113,21 +114,19 @@
     width: 32px;
     height: 32px;
     color: #fff;
-    transition: 0.3s;
-    &:hover {
-      color: blueviolet;
-      transition: 0.3s;
-    }
   }
   h2 {
     font-family: Poppins;
     font-size: 19px;
     font-weight: 500;
     color: #fff;
-    transition: 0.3s;
-    &:hover {
+  }
+  &:hover {
+    svg {
       color: blueviolet;
-      transition: 0.3s;
+    }
+    h2 {
+      color: blueviolet;
     }
   }
 }
