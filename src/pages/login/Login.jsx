@@ -38,7 +38,7 @@ const Login = () => {
                   </label>
                   <span>error message</span>
                 </div>
-                <button type="button">
+                <button type="submit">
                   Login <IoMdFingerPrint />
                 </button>
               </form>
