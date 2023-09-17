@@ -11,6 +11,7 @@
     font-family: Poppins;
     font-weight: normal;
     font-size: 16px;
+    padding-bottom: 10px;
     color: blueviolet;
   }
   .login__title {
@@ -33,7 +34,7 @@
     outline: none;
     border-radius: 5px;
     padding: 12px 0;
-    font-family: 'Roboto', sans-serif;
+    font-family: "Roboto", sans-serif;
     font-weight: 400;
     font-size: 21px;
     text-transform: uppercase;
@@ -43,6 +44,8 @@
     align-items: center;
     column-gap: 5px;
     justify-content: center;
+    box-shadow: rgba(0, 0, 0, 0.2) 0px 3px 1px -2px,
+      rgba(0, 0, 0, 0.14) 0px 2px 2px 0px, rgba(0, 0, 0, 0.12) 0px 1px 5px 0px;
     svg {
       width: 25px;
       height: 25px;
