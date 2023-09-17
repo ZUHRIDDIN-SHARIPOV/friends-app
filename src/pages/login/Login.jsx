@@ -2,8 +2,7 @@ import { memo } from "react";
 import { styled } from "@mui/material/styles";
 import Button from "@mui/material/Button";
 import { purple } from "@mui/material/colors";
-import IconButton from "@mui/material/IconButton";
-import Fingerprint from "@mui/icons-material/Fingerprint";
+import { IoMdFingerPrint } from "react-icons/io";
 import "./Login.scss";
 
 const Login = () => {
@@ -14,6 +13,7 @@ const Login = () => {
       backgroundColor: purple[700],
     },
   }));
+
   return (
     <>
       <main>
@@ -49,20 +49,9 @@ const Login = () => {
                   </label>
                   <span>error message</span>
                 </div>
-                <ColorButton
-                  type="submit"
-                  style={{
-                    maxWidth: "350px",
-                  }}
-                  variant="contained">
+                <ColorButton type="submit" variant="contained">
                   Login
-                  <IconButton aria-label="fingerprint" color="secondary">
-                    <Fingerprint
-                      style={{
-                        color: "#fff",
-                      }}
-                    />
-                  </IconButton>
+                  <IoMdFingerPrint />
                 </ColorButton>
               </form>
             </div>
