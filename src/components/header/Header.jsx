@@ -22,9 +22,7 @@ const Header = ({ darkMode, checkDark }) => {
               <h2>My classmates</h2>
             </div>
             <ul className="site-header__list">
-              <li
-                className={`site-header__item ${open ? "light-hidden" : ""}`}
-                onClick={darkMode}>
+              <li className="site-header__item" onClick={darkMode}>
                 {checkDark ? <BsLightningCharge /> : <BsLightningChargeFill />}
               </li>
               <li className="site-header__item">

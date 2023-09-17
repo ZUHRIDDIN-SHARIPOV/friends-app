@@ -96,7 +96,8 @@
   align-items: center;
   row-gap: 55px;
   padding-top: 25px;
-  background: #232536;
+  // background: #232536;
+  background: #000;
   backdrop-filter: blur(11px);
   transform: translateX(-101%);
   transition: 0.3s;
@@ -148,10 +149,6 @@
     border-bottom: 1.5px solid #fff;
     transition: 0.3s;
   }
-}
-.light-hidden {
-  display: none;
-  transition: 0.3s;
 }
 
 @media only screen and (max-width: 860px) {
