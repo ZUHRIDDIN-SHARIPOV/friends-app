@@ -24,7 +24,7 @@ const Login = () => {
                       required
                     />
                   </label>
-                  <span>error message</span>
+                  <span></span>
                 </div>
                 <div className="login__form-control">
                   <label>
@@ -37,7 +37,7 @@ const Login = () => {
                       required
                     />
                   </label>
-                  <span>error message</span>
+                  <span></span>
                 </div>
                 <button type="submit">
                   Login <IoMdFingerPrint />
