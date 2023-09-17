@@ -26,16 +26,16 @@ const Header = ({ darkMode, checkDark }) => {
                 {checkDark ? <BsLightningCharge /> : <BsLightningChargeFill />}
               </li>
               <li className="site-header__item">
-                <NavLink>Home</NavLink>
+                <NavLink to={"/home"}>Home</NavLink>
               </li>
               <li className="site-header__item">
-                <NavLink>Login</NavLink>
+                <NavLink to={"/"}>Login</NavLink>
               </li>
               <li className="site-header__item">
-                <NavLink>Sign Up</NavLink>
+                <NavLink to={"/signUp"}>Sign Up</NavLink>
               </li>
               <li className="site-header__item">
-                <NavLink>Support</NavLink>
+                <NavLink to={"/support"}>Support</NavLink>
               </li>
             </ul>
             <ul className={`site-header__menu-list ${open ? "menu__key" : ""}`}>
@@ -44,16 +44,16 @@ const Header = ({ darkMode, checkDark }) => {
                 <h2>My classmates</h2>
               </li>
               <li className="site-header__menu-item">
-                <NavLink>Home</NavLink>
+                <NavLink to={"/home"}>Home</NavLink>
               </li>
               <li className="site-header__menu-item">
-                <NavLink>Login</NavLink>
+                <NavLink to={"/"}>Login</NavLink>
               </li>
               <li className="site-header__menu-item">
-                <NavLink>Sign Up</NavLink>
+                <NavLink to={"/signUp"}>Sign Up</NavLink>
               </li>
               <li className="site-header__menu-item">
-                <NavLink>Support</NavLink>
+                <NavLink to={"/support"}>Support</NavLink>
               </li>
             </ul>
             <div className="site-header__menu-logo" onClick={menuMode}>

@@ -1,0 +1,62 @@
+.login {
+  margin-top: 90px;
+}
+.login__block {
+  max-width: 700px;
+  width: 100%;
+  margin-right: auto;
+  margin-left: auto;
+  margin-top: 155px;
+  .login__text {
+    font-family: Poppins;
+    font-weight: normal;
+    font-size: 16px;
+    color: blueviolet;
+  }
+  .login__title {
+    font-family: Poppins;
+    font-weight: 500;
+    font-size: 25px;
+    color: #000;
+  }
+}
+
+.login__form {
+  margin-top: 45px;
+  margin-bottom: 55px;
+  display: flex;
+  flex-direction: column;
+  row-gap: 30px;
+}
+.login__form-control {
+  label {
+    display: flex;
+    flex-direction: column;
+    font-family: Poppins;
+    font-weight: 500;
+    font-size: 15.7px;
+    color: blueviolet;
+  }
+  input {
+    max-width: 700px;
+    margin-top: 3px;
+    padding: 12px 0 12px 15px;
+    outline: none;
+    border: 1px solid blueviolet;
+    border-radius: 5px;
+    color: blueviolet;
+    font-size: 15px;
+    &::placeholder {
+      font-family: Poppins;
+      font-weight: 400;
+      font-size: 12px;
+      color: blueviolet;
+    }
+  }
+  span {
+    font-family: Poppins;
+    font-weight: 400;
+    font-size: 12px;
+    color: red;
+  }
+}
