@@ -43,54 +43,55 @@ img {
 }
 .dark {
   .site-header {
-    background: #232536;
-    transition: 0.4s;
+    background: #000;
+    border-bottom: 1px solid #232536;
+    transition: 0.2s;
   }
   .site-header__logo svg,
   h2 {
     color: #fff;
-    transition: 0.3s;
+    transition: 0.1s;
   }
   .site-header__item {
     a {
       color: #fff;
-      transition: 0.3s;
+      transition: 0.1s;
     }
     .active {
       border-bottom: 2px solid #fff;
-      transition: 0.3s;
+      transition: 0.1s;
     }
   }
   .site-header__item:nth-child(1) svg {
     color: #fff;
-    transition: 0.3s;
+    transition: 0.1s;
   }
   .site-header__menu-logo svg {
     color: #fff;
-    transition: 0.3s;
+    transition: 0.1s;
   }
   .login {
     background: #000;
-    transition: 0.3s;
+    transition: 0.1s;
   }
   .login__block {
     .login__text {
       color: #fff;
-      transition: 0.3s;
+      transition: 0.1s;
     }
     .login__title {
       color: blueviolet;
-      transition: 0.3s;
+      transition: 0.1s;
     }
   }
   .login__form-control {
     label {
       color: #fff;
-      transition: 0.3s;
+      transition: 0.1s;
     }
     input {
       background: #000;
-      transition: 0.3s;
+      transition: 0.1s;
     }
   }
 }

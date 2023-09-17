@@ -97,15 +97,14 @@
   align-items: center;
   row-gap: 55px;
   padding-top: 25px;
-  // background: #232536;
   background: #000;
   backdrop-filter: blur(11px);
   transform: translateX(-101%);
-  transition: 0.3s;
+  transition: 0.1s;
 }
 .menu__key {
   transform: translateX(0);
-  transition: 0.3s;
+  transition: 0.1s;
 }
 .site-header__menu-item:nth-child(1) {
   display: flex;

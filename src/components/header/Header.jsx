@@ -1,6 +1,6 @@
 import { memo, useState } from "react";
 import { FaTwitter } from "react-icons/fa";
-import { CgMenuLeft } from "react-icons/cg";
+import { TbMenu2 } from "react-icons/tb";
 import { BsLightningChargeFill, BsLightningCharge } from "react-icons/bs";
 import { VscChromeClose } from "react-icons/vsc";
 import "./Header.scss";
@@ -57,7 +57,7 @@ const Header = ({ darkMode, checkDark }) => {
               </li>
             </ul>
             <div className="site-header__menu-logo" onClick={menuMode}>
-              {open ? <VscChromeClose /> : <CgMenuLeft />}
+              {open ? <VscChromeClose /> : <TbMenu2 />}
             </div>
           </div>
         </div>
