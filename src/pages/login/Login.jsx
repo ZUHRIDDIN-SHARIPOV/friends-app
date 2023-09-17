@@ -1,19 +1,8 @@
 import { memo } from "react";
-import { styled } from "@mui/material/styles";
-import Button from "@mui/material/Button";
-import { purple } from "@mui/material/colors";
 import { IoMdFingerPrint } from "react-icons/io";
 import "./Login.scss";
 
 const Login = () => {
-  const ColorButton = styled(Button)(({ theme }) => ({
-    color: theme.palette.getContrastText(purple[500]),
-    backgroundColor: purple[500],
-    "&:hover": {
-      backgroundColor: purple[700],
-    },
-  }));
-
   return (
     <>
       <main>
@@ -49,10 +38,9 @@ const Login = () => {
                   </label>
                   <span>error message</span>
                 </div>
-                <ColorButton type="submit" variant="contained">
-                  Login
-                  <IoMdFingerPrint />
-                </ColorButton>
+                <button type="submit">
+                  Login <IoMdFingerPrint />
+                </button>
               </form>
             </div>
           </div>
