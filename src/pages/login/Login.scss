@@ -104,3 +104,47 @@
     margin-top: 84px;
   }
 }
+@media only screen and (max-width: 361px) {
+  .login {
+    margin-top: 78px;
+  }
+  .login__block {
+    .login__text {
+      font-size: 15px;
+    }
+    .login__title {
+      font-size: 20px;
+    }
+    transition: 0.3s;
+  }
+  .login__form {
+    margin-top: 30px;
+    row-gap: 30px;
+    button {
+      max-width: 250px;
+      padding: 10px 0;
+      font-size: 16px;
+      svg {
+        width: 19px;
+        height: 19px;
+      }
+    }
+  }
+  .login__form-control {
+    label {
+      font-size: 16px;
+    }
+    input {
+      padding: 8px 0 8px 13px;
+      font-size: 13px;
+    }
+  }
+  .login__list {
+    padding-top: 45px;
+  }
+  .login__item {
+    a {
+      font-size: 14px;
+    }
+  }
+}

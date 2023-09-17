@@ -216,3 +216,49 @@
     }
   }
 }
+@media only screen and (max-width: 361px) {
+  .site-header__logo {
+    svg {
+      width: 25px;
+      height: 25px;
+      transition: 0.3s;
+    }
+    h2 {
+      font-size: 17px;
+      transition: 0.3s;
+    }
+  }
+  .site-header__item:nth-child(1) svg {
+    width: 23px;
+    height: 23px;
+    transition: 0.3s;
+  }
+  .site-header__menu-logo {
+    svg {
+      width: 23px;
+      height: 23px;
+      transition: 0.3s;
+    }
+  }
+  .site-header__menu-list {
+    max-width: 195px;
+    row-gap: 45px;
+    transition: 0.1s;
+  }
+  .site-header__menu-item {
+    a {
+      font-size: 14px;
+      transition: 0.3s;
+    }
+  }
+  .site-header__menu-item:nth-child(1) {
+    svg {
+      width: 25px;
+      height: 25px;
+    }
+    h2 {
+      font-size: 17px;
+    }
+    transition: 0.3s;
+  }
+}
