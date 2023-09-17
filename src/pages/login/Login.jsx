@@ -1,6 +1,7 @@
 import { memo } from "react";
 import { IoMdFingerPrint } from "react-icons/io";
 import "./Login.scss";
+import { Link } from "react-router-dom";
 
 const Login = () => {
   return (
@@ -42,6 +43,14 @@ const Login = () => {
                   Login <IoMdFingerPrint />
                 </button>
               </form>
+              <ul className="login__list">
+                <li className="login__item">
+                  <Link>Forgot Password ?</Link>
+                </li>
+                <li className="login__item">
+                  <Link>Create an account</Link>
+                </li>
+              </ul>
             </div>
           </div>
         </section>

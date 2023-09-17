@@ -21,10 +21,8 @@
     color: #000;
   }
 }
-
 .login__form {
   margin-top: 45px;
-  margin-bottom: 55px;
   display: flex;
   flex-direction: column;
   row-gap: 30px;
@@ -36,7 +34,7 @@
     padding: 12px 0;
     font-family: "Roboto", sans-serif;
     font-weight: 400;
-    font-size: 21px;
+    font-size: 18px;
     text-transform: uppercase;
     background: blueviolet;
     color: #fff;
@@ -47,8 +45,8 @@
     box-shadow: rgba(0, 0, 0, 0.2) 0px 3px 1px -2px,
       rgba(0, 0, 0, 0.14) 0px 2px 2px 0px, rgba(0, 0, 0, 0.12) 0px 1px 5px 0px;
     svg {
-      width: 25px;
-      height: 25px;
+      width: 21px;
+      height: 21px;
       color: #fff;
     }
   }
@@ -59,7 +57,7 @@
     flex-direction: column;
     font-family: Poppins;
     font-weight: 500;
-    font-size: 15.7px;
+    font-size: 18px;
     color: blueviolet;
   }
   input {
@@ -83,6 +81,18 @@
     font-weight: 400;
     font-size: 12px;
     color: red;
+  }
+}
+.login__list {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 30px;
+  margin-bottom: 55px;
+}
+.login__item {
+  a {
+    text-decoration: underline;
   }
 }
 
