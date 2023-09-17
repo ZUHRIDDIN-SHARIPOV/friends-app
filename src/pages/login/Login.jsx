@@ -48,7 +48,7 @@ const Login = () => {
                   <Link>Forgot Password ?</Link>
                 </li>
                 <li className="login__item">
-                  <Link>Create an account</Link>
+                  <Link to={"/signUp"}>Create an account</Link>
                 </li>
               </ul>
             </div>
