@@ -69,4 +69,28 @@ img {
     color: #fff;
     transition: 0.3s;
   }
+  .login {
+    background: #000;
+    transition: 0.3s;
+  }
+  .login__block {
+    .login__text {
+      color: #fff;
+      transition: 0.3s;
+    }
+    .login__title {
+      color: blueviolet;
+      transition: 0.3s;
+    }
+  }
+  .login__form-control {
+    label {
+      color: #fff;
+      transition: 0.3s;
+    }
+    input {
+      background: #000;
+      transition: 0.3s;
+    }
+  }
 }

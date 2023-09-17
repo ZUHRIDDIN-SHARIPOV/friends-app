@@ -1,12 +1,12 @@
 .login {
-  margin-top: 90px;
+  margin-top: 89px;
 }
 .login__block {
   max-width: 700px;
   width: 100%;
   margin-right: auto;
   margin-left: auto;
-  margin-top: 155px;
+  padding-top: 55px;
   .login__text {
     font-family: Poppins;
     font-weight: normal;
@@ -88,7 +88,7 @@
   align-items: center;
   justify-content: space-between;
   margin-top: 55px;
-  margin-bottom: 77px;
+  padding-bottom: 120px;
 }
 .login__item {
   a {
@@ -98,6 +98,12 @@
 
 @media only screen and (max-width: 860px) {
   .login__block {
-    margin-top: 130px;
+    padding-top: 30px;
+  }
+  .login {
+    margin-top: 84px;
+  }
+  .login__list {
+    padding-bottom: 77px;
   }
 }
