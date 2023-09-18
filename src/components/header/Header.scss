@@ -97,7 +97,7 @@
   align-items: center;
   row-gap: 55px;
   padding-top: 25px;
-  background: #000;
+  background: #fff;
   backdrop-filter: blur(11px);
   transform: translateX(-101%);
   transition: 0.1s;
@@ -114,13 +114,13 @@
   svg {
     width: 32px;
     height: 32px;
-    color: #fff;
+    color: #000;
   }
   h2 {
     font-family: Poppins;
     font-size: 19px;
     font-weight: 500;
-    color: #fff;
+    color: #000;
   }
   &:hover {
     svg {
@@ -137,7 +137,7 @@
     font-family: Poppins;
     font-size: 15.7px;
     font-weight: 500;
-    color: #fff;
+    color: #000;
     padding-bottom: 3px;
     transition: 0.3s;
     &:hover {
@@ -146,7 +146,7 @@
     }
   }
   .active {
-    border-bottom: 1.5px solid #fff;
+    border-bottom: 1.5px solid #000;
     transition: 0.3s;
   }
 }

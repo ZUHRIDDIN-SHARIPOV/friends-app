@@ -70,6 +70,29 @@ img {
     color: #fff;
     transition: 0.1s;
   }
+  .site-header__menu-list {
+    background: #000;
+    transition: 0.1s;
+  }
+  .site-header__menu-item:nth-child(1) {
+    svg {
+      color: #fff;
+    }
+    h2 {
+      color: #fff;
+    }
+    transition: 0.3s;
+  }
+  .site-header__menu-item {
+    a {
+      color: #fff;
+      transition: 0.3s;
+    }
+    .active {
+      border-bottom: 1.5px solid #fff;
+      transition: 0.3s;
+    }
+  }
   .login {
     background: #000;
     transition: 0.1s;
