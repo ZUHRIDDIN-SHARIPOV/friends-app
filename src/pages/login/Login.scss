@@ -1,6 +1,6 @@
 .login {
   margin-top: 89px;
-  height: 100vh;
+  // height: 100vh;
 }
 .login__block {
   max-width: 700px;
@@ -89,6 +89,7 @@
   align-items: center;
   justify-content: space-between;
   padding-top: 55px;
+  padding-bottom: 120px; //new code
 }
 .login__item {
   a {
