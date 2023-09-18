@@ -1,11 +1,11 @@
 {
-  "short_name": "My classmates",
+  "short_name": "MC",
   "name": "My classmates",
   "icons": [
     {
       "src": "mc.png",
       "type": "image/png",
-      "sizes": "200x200"
+      "sizes": "177x177"
     }
   ],
   "start_url": ".",
