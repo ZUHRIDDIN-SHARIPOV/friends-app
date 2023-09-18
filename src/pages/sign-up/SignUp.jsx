@@ -1,6 +1,4 @@
 import { memo } from "react";
-import { IoMdFingerPrint } from "react-icons/io";
-import { Link } from "react-router-dom";
 import "./SignUp.scss";
 
 const SignUp = () => {
@@ -52,15 +50,8 @@ const SignUp = () => {
                   </label>
                   <span></span>
                 </div>
-                <button type="submit">
-                  Sign Up <IoMdFingerPrint />
-                </button>
+                <button type="submit">Sign Up</button>
               </form>
-              <ul className="signUp__list">
-                <li className="signUp__item">
-                  <Link to={"/"}>Go to login</Link>
-                </li>
-              </ul>
             </div>
           </div>
         </section>
