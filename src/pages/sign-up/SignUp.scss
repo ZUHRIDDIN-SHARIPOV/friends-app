@@ -1,0 +1,150 @@
+.signUp {
+  margin-top: 89px;
+  height: 100vh;
+}
+.signUp__block {
+  max-width: 700px;
+  width: 100%;
+  margin-right: auto;
+  margin-left: auto;
+  padding-top: 55px;
+  .signUp__text {
+    font-family: Poppins;
+    font-weight: normal;
+    font-size: 16px;
+    padding-bottom: 10px;
+    color: blueviolet;
+  }
+  .signUp__title {
+    font-family: Poppins;
+    font-weight: 500;
+    font-size: 25px;
+    color: #000;
+  }
+}
+.signUp__form {
+  margin-top: 45px;
+  display: flex;
+  flex-direction: column;
+  row-gap: 40px;
+  button {
+    max-width: 300px;
+    border: none;
+    outline: none;
+    border-radius: 5px;
+    padding: 12px 0;
+    font-family: "Roboto", sans-serif;
+    font-weight: 400;
+    font-size: 18px;
+    text-transform: uppercase;
+    background: blueviolet;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    column-gap: 5px;
+    justify-content: center;
+    box-shadow: rgba(0, 0, 0, 0.2) 0px 3px 1px -2px,
+      rgba(0, 0, 0, 0.14) 0px 2px 2px 0px, rgba(0, 0, 0, 0.12) 0px 1px 5px 0px;
+    svg {
+      width: 21px;
+      height: 21px;
+      color: #fff;
+    }
+  }
+}
+.signUp__form-control {
+  label {
+    display: flex;
+    flex-direction: column;
+    font-family: Poppins;
+    font-weight: 500;
+    font-size: 18px;
+    color: blueviolet;
+  }
+  input {
+    max-width: 700px;
+    margin-top: 3px;
+    padding: 12px 0 12px 15px;
+    outline: none;
+    border: 1px solid blueviolet;
+    border-radius: 5px;
+    color: blueviolet;
+    font-size: 15px;
+    &::placeholder {
+      font-family: Poppins;
+      font-weight: 400;
+      font-size: 12px;
+      color: blueviolet;
+    }
+  }
+  span {
+    font-family: Poppins;
+    font-weight: 400;
+    font-size: 12px;
+    color: red;
+  }
+}
+.signUp__list {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-top: 55px;
+}
+.signUp__item {
+  a {
+    text-decoration: underline;
+  }
+}
+
+@media only screen and (max-width: 860px) {
+  .signUp__block {
+    padding-top: 30px;
+  }
+  .signUp {
+    margin-top: 84px;
+  }
+}
+@media only screen and (max-width: 361px) {
+  .signUp {
+    margin-top: 78px;
+  }
+  .signUp__block {
+    .signUp__text {
+      font-size: 15px;
+    }
+    .signUp__title {
+      font-size: 20px;
+    }
+    transition: 0.3s;
+  }
+  .signUp__form {
+    margin-top: 30px;
+    row-gap: 30px;
+    button {
+      max-width: 250px;
+      padding: 10px 0;
+      font-size: 16px;
+      svg {
+        width: 19px;
+        height: 19px;
+      }
+    }
+  }
+  .signUp__form-control {
+    label {
+      font-size: 16px;
+    }
+    input {
+      padding: 8px 0 8px 13px;
+      font-size: 13px;
+    }
+  }
+  .signUp__list {
+    padding-top: 45px;
+  }
+  .signUp__item {
+    a {
+      font-size: 14px;
+    }
+  }
+}

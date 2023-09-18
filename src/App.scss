@@ -59,7 +59,6 @@ img {
     }
     .active {
       border-bottom: 2px solid #fff;
-      transition: 0.1s;
     }
   }
   .site-header__item:nth-child(1) svg {
@@ -108,6 +107,31 @@ img {
     }
   }
   .login__form-control {
+    label {
+      color: #fff;
+      transition: 0.1s;
+    }
+    input {
+      background: #000;
+      transition: 0.1s;
+    }
+  }
+
+  .signUp {
+    background: #000;
+    transition: 0.1s;
+  }
+  .signUp__block {
+    .signUp__text {
+      color: #fff;
+      transition: 0.1s;
+    }
+    .signUp__title {
+      color: blueviolet;
+      transition: 0.1s;
+    }
+  }
+  .signUp__form-control {
     label {
       color: #fff;
       transition: 0.1s;
