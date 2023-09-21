@@ -1,5 +1,4 @@
 import { memo } from "react";
-import { IoMdFingerPrint } from "react-icons/io";
 import "./SignUp.scss";
 
 const SignUp = () => {
@@ -51,9 +50,7 @@ const SignUp = () => {
                   </label>
                   <span></span>
                 </div>
-                <button type="submit">
-                  Sign Up <IoMdFingerPrint />
-                </button>
+                <button type="submit">Sign Up</button>
               </form>
             </div>
           </div>
