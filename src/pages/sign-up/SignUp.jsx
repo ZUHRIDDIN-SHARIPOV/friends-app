@@ -1,7 +1,48 @@
-import { memo } from "react";
+import { memo, useState } from "react";
+import { useFormik } from "formik";
+import { BsEyeSlash } from "react-icons/bs";
+import { BsEye } from "react-icons/bs";
 import "./SignUp.scss";
 
 const SignUp = () => {
+  const [showPassword, setShowPassword] = useState(false);
+  const [showCnfPassword, setShowCnfPassword] = useState(false);
+  const handleShowCnfPassword = () => {
+    setShowCnfPassword(!showCnfPassword);
+  };
+  const handleShowPassword = () => {
+    setShowPassword(!showPassword);
+  };
+  const emailRegex = /^\w+([/.-]?\w+)*@\w+([/.-]?\w+)*(\w{2,3})+$/;
+  const formData = useFormik({
+    initialValues: {
+      email: "",
+      password: "",
+      confirmPassword: "",
+    },
+    onSubmit: (values, { resetForm }) => {
+      resetForm();
+    },
+    validate: (value) => {
+      let errors = {};
+      if (!value.email) {
+        errors.email = "Email cannot be empty";
+      } else if (!emailRegex.test(value.email)) {
+        errors.email = "Please enter a valid email address";
+      }
+      if (!value.password) {
+        errors.password = "Password cannot be empty";
+      } else if (value.password.length < 6) {
+        errors.password = "Password must be at least 6 characters long";
+      }
+      if (!value.confirmPassword) {
+        errors.confirmPassword = "Confirm Password cannot be empty";
+      } else if (value.password !== value.confirmPassword) {
+        errors.confirmPassword = "The verification password did not match";
+      }
+      return errors;
+    },
+  });
   return (
     <>
       <main>
@@ -10,7 +51,7 @@ const SignUp = () => {
             <div className="signUp__block">
               <p className="signUp__text">Welcome back 👋</p>
               <h2 className="signUp__title">Create an account</h2>
-              <form className="signUp__form">
+              <form className="signUp__form" onSubmit={formData.handleSubmit}>
                 <div className="signUp__form-control">
                   <label>
                     Email
@@ -19,36 +60,57 @@ const SignUp = () => {
                       name="email"
                       autoComplete="off"
                       placeholder="Please enter your email"
-                      required
+                      value={formData.values.email}
+                      onChange={formData.handleChange}
                     />
                   </label>
-                  <span></span>
+                  <span>
+                    {formData.errors.email ? formData.errors.email : ""}
+                  </span>
                 </div>
                 <div className="signUp__form-control">
                   <label>
                     Password
                     <input
-                      type="password"
+                      type={showPassword ? "text" : "password"}
                       name="password"
                       autoComplete="off"
                       placeholder="Enter password"
-                      required
+                      value={formData.values.password}
+                      onChange={formData.handleChange}
                     />
+                    {showPassword ? (
+                      <BsEye onClick={handleShowPassword} />
+                    ) : (
+                      <BsEyeSlash onClick={handleShowPassword} />
+                    )}
                   </label>
-                  <span></span>
+                  <span>
+                    {formData.errors.password ? formData.errors.password : ""}
+                  </span>
                 </div>
                 <div className="signUp__form-control">
                   <label>
                     Confirm Password
                     <input
-                      type="password"
-                      name="password"
+                      type={showCnfPassword ? "text" : "password"}
+                      name="confirmPassword"
                       autoComplete="off"
                       placeholder="Confirm Password"
-                      required
+                      value={formData.values.confirmPassword}
+                      onChange={formData.handleChange}
                     />
+                    {showCnfPassword ? (
+                      <BsEye onClick={handleShowCnfPassword} />
+                    ) : (
+                      <BsEyeSlash onClick={handleShowCnfPassword} />
+                    )}
                   </label>
-                  <span></span>
+                  <span>
+                    {formData.errors.confirmPassword
+                      ? formData.errors.confirmPassword
+                      : ""}
+                  </span>
                 </div>
                 <button type="submit">Sign Up</button>
               </form>
