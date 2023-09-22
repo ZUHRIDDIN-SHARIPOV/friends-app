@@ -25,7 +25,10 @@ const SignUp = () => {
       confirmPassword: "",
     },
     onSubmit: (values, { resetForm }) => {
+      
       resetForm();
+      setShowCnfPassword(false);
+      setShowPassword(false);
     },
     validate: (value) => {
       let errors = {};
