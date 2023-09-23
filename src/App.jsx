@@ -1,6 +1,6 @@
 import { memo, useState } from "react";
 import "./App.scss";
-import Routing from "./router/Routing";
+import Router from "./router/Router";
 
 function App() {
   const [dark, setDark] = useState(false);
@@ -10,7 +10,7 @@ function App() {
   return (
     <>
       <div className={`App ${dark ? "dark" : ""}`}>
-        <Routing darkMode={darkMode} checkDark={dark} />
+        <Router darkMode={darkMode} checkDark={dark} />
       </div>
     </>
   );

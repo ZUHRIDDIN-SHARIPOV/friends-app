@@ -3,7 +3,7 @@ import { BrowserRouter, Route, Routes, Navigate } from "react-router-dom";
 import { Header } from "../components/re-export";
 import { Home, Login, SignUp, Error, Support } from "../pages/re-export";
 
-const Routing = ({ darkMode, checkDark }) => {
+const Router = ({ darkMode, checkDark }) => {
   return (
     <>
       <BrowserRouter>
@@ -21,4 +21,4 @@ const Routing = ({ darkMode, checkDark }) => {
   );
 };
 
-export default memo(Routing);
+export default memo(Router);
