@@ -1,7 +1,6 @@
 import { memo, useRef, useState } from "react";
 import { Link } from "react-router-dom";
 import { useFormik } from "formik";
-import { IoMdFingerPrint } from "react-icons/io";
 import { BsEyeSlash } from "react-icons/bs";
 import { BsEye } from "react-icons/bs";
 import "./Login.scss";
@@ -102,9 +101,7 @@ const Login = () => {
                     {formData.errors.password ? formData.errors.password : ""}
                   </span>
                 </div>
-                <button type="submit">
-                  Login <IoMdFingerPrint />
-                </button>
+                <button type="submit">Login</button>
               </form>
               <ul className="login__list">
                 <li className="login__item">
