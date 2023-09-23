@@ -6,13 +6,15 @@ import "./SignUp.scss";
 
 const SignUp = () => {
   const [showPassword, setShowPassword] = useState(false);
+  const handleShowPassword = () => {
+    setShowPassword(!showPassword);
+  };
+
   const [showCnfPassword, setShowCnfPassword] = useState(false);
   const handleShowCnfPassword = () => {
     setShowCnfPassword(!showCnfPassword);
   };
-  const handleShowPassword = () => {
-    setShowPassword(!showPassword);
-  };
+
   const emailRegex = /^\w+([/.-]?\w+)*@\w+([/.-]?\w+)*(\w{2,3})+$/;
   const emailRef = useRef(null);
   const passwordRef = useRef(null);
@@ -25,7 +27,6 @@ const SignUp = () => {
       confirmPassword: "",
     },
     onSubmit: (values, { resetForm }) => {
-      
       resetForm();
       setShowCnfPassword(false);
       setShowPassword(false);

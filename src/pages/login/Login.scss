@@ -60,6 +60,13 @@
     font-weight: 500;
     font-size: 18px;
     color: #000;
+    position: relative;
+  }
+  label svg {
+    position: absolute;
+    top: 45px;
+    right: 15px;
+    cursor: pointer;
   }
   input {
     max-width: 700px;
@@ -137,6 +144,9 @@
     input {
       padding: 8px 0 8px 13px;
       font-size: 13px;
+    }
+    label svg {
+      top: 37px;
     }
   }
   .login__list {
