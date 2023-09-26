@@ -28,7 +28,6 @@ const Login = () => {
       let errors = {};
 
       if (!value.email) {
-        emailRef.current.focus();
         errors.email = "Email cannot be empty";
       } else if (!emailRegex.test(value.email)) {
         errors.email = "Please enter a valid email address";
@@ -88,7 +87,6 @@ const Login = () => {
                       placeholder="Enter password"
                       value={formData.values.password}
                       onChange={formData.handleChange}
-                      onKeyDown={(e) => handleEnterKeyPress(e, emailRef)}
                       ref={passwordRef}
                     />
                     {showPassword ? (
