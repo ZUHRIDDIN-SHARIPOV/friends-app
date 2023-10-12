@@ -7,16 +7,22 @@ import "./Header.scss";
 import { NavLink } from "react-router-dom";
 import { auth } from "../../firebase";
 import { signOut } from "firebase/auth";
+import { LoginToastify, SignOutToastify } from "../re-export";
 
 const Header = ({ darkMode, checkDark, user }) => {
   const [open, setOpen] = useState(false);
   const menuMode = () => {
     setOpen(!open);
   };
+  const [signIn, setSignIn] = useState(true);
+  const signInUser = () => {
+    setSignIn(!signIn);
+  };
   const userSignOut = async () => {
     try {
       setTimeout(async () => {
         await signOut(auth);
+        signInUser();
       }, 500);
       console.log("Sign Out successfull");
     } catch (error) {
@@ -104,6 +110,8 @@ const Header = ({ darkMode, checkDark, user }) => {
           </div>
         </div>
       </header>
+      <LoginToastify user={user} />
+      <SignOutToastify signIn={signIn} />
     </>
   );
 };
