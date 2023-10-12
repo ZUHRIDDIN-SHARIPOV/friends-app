@@ -25,6 +25,8 @@ const Login = () => {
     onSubmit: async (values, { resetForm }) => {
       const { email, password } = values;
       try {
+        resetForm();
+        setShowPassword(false);
         const response = await signInWithEmailAndPassword(
           auth,
           email,
@@ -35,8 +37,6 @@ const Login = () => {
       } catch (error) {
         console.error(error.message);
       }
-      resetForm();
-      setShowPassword(false);
     },
     validate: (value) => {
       let errors = {};

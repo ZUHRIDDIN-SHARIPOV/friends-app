@@ -31,6 +31,9 @@ const SignUp = () => {
     onSubmit: async (values, { resetForm }) => {
       const { email, password } = values;
       try {
+        resetForm();
+        setShowCnfPassword(false);
+        setShowPassword(false);
         const response = await createUserWithEmailAndPassword(
           auth,
           email,
@@ -41,9 +44,6 @@ const SignUp = () => {
       } catch (error) {
         console.error(error.message);
       }
-      resetForm();
-      setShowCnfPassword(false);
-      setShowPassword(false);
     },
     validate: (value) => {
       let errors = {};
