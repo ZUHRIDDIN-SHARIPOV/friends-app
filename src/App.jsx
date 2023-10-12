@@ -5,7 +5,7 @@ import Router from "./router/Router";
 import "./App.scss";
 
 function App() {
-  const [dark, setDark] = useState(false);
+  const [dark, setDark] = useState(true);
   const darkMode = () => {
     setDark(!dark);
   };
