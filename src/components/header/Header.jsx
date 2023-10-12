@@ -18,7 +18,7 @@ const Header = ({ darkMode, checkDark, user }) => {
       setTimeout(async () => {
         await signOut(auth);
       }, 500);
-      console.log("Sign out successfull");
+      console.log("Sign Out successfull");
     } catch (error) {
       console.error(error.message);
     }

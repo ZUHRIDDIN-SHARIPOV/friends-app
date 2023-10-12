@@ -23,16 +23,11 @@ const Login = () => {
       password: "",
     },
     onSubmit: async (values, { resetForm }) => {
-      const { email, password } = values;
+      resetForm();
+      setShowPassword(false);
       try {
-        resetForm();
-        setShowPassword(false);
-        const response = await signInWithEmailAndPassword(
-          auth,
-          email,
-          password
-        );
-        console.log(response);
+        const { email, password } = values;
+        await signInWithEmailAndPassword(auth, email, password);
         console.log("Login successful");
       } catch (error) {
         console.error(error.message);

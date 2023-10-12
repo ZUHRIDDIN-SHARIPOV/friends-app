@@ -19,7 +19,7 @@ const Router = ({ user, darkMode, checkDark }) => {
           />
           <Route
             path="/home"
-            element={user ? <Home user={user} /> : <Navigate to={"/"} />}
+            element={user ? <Home /> : <Navigate to={"/"} />}
           />
           <Route
             path="/support"

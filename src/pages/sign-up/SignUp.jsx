@@ -29,17 +29,12 @@ const SignUp = () => {
       confirmPassword: "",
     },
     onSubmit: async (values, { resetForm }) => {
-      const { email, password } = values;
+      resetForm();
+      setShowCnfPassword(false);
+      setShowPassword(false);
       try {
-        resetForm();
-        setShowCnfPassword(false);
-        setShowPassword(false);
-        const response = await createUserWithEmailAndPassword(
-          auth,
-          email,
-          password
-        );
-        console.log(response);
+        const { email, password } = values;
+        await createUserWithEmailAndPassword(auth, email, password);
         console.log("Sign Up successful");
       } catch (error) {
         console.error(error.message);
