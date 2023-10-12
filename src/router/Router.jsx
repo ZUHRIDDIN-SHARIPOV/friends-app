@@ -1,25 +1,9 @@
-import { memo, useEffect, useState } from "react";
+import { memo } from "react";
 import { BrowserRouter, Route, Routes, Navigate } from "react-router-dom";
 import { Header } from "../components/re-export";
 import { Home, Login, SignUp, Error, Support } from "../pages/re-export";
-import { auth } from "../firebase";
-import { onAuthStateChanged } from "firebase/auth";
 
-const Router = ({ darkMode, checkDark }) => {
-  const [user, setUser] = useState(null);
-  useEffect(() => {
-    const listen = onAuthStateChanged(auth, (user) => {
-      if (user) {
-        setUser(user);
-      } else {
-        setUser(null);
-      }
-    });
-    return () => {
-      listen();
-    };
-  }, []);
-
+const Router = ({ user, darkMode, checkDark }) => {
   return (
     <>
       <BrowserRouter>
@@ -35,7 +19,7 @@ const Router = ({ darkMode, checkDark }) => {
           />
           <Route
             path="/home"
-            element={user ? <Home /> : <Navigate to={"/"} />}
+            element={user ? <Home user={user} /> : <Navigate to={"/"} />}
           />
           <Route
             path="/support"
