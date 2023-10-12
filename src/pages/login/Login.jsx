@@ -3,6 +3,8 @@ import { Link } from "react-router-dom";
 import { useFormik } from "formik";
 import { BsEyeSlash } from "react-icons/bs";
 import { BsEye } from "react-icons/bs";
+import { auth } from "../../firebase";
+import { signInWithEmailAndPassword } from "firebase/auth";
 import "./Login.scss";
 
 const Login = () => {
@@ -20,7 +22,19 @@ const Login = () => {
       email: "",
       password: "",
     },
-    onSubmit: (values, { resetForm }) => {
+    onSubmit: async (values, { resetForm }) => {
+      const { email, password } = values;
+      try {
+        const response = await signInWithEmailAndPassword(
+          auth,
+          email,
+          password
+        );
+        console.log(response);
+        console.log("Login successful");
+      } catch (error) {
+        console.error(error.message);
+      }
       resetForm();
       setShowPassword(false);
     },

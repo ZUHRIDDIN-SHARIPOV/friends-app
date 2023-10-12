@@ -2,6 +2,8 @@ import { memo, useState, useRef } from "react";
 import { useFormik } from "formik";
 import { BsEyeSlash } from "react-icons/bs";
 import { BsEye } from "react-icons/bs";
+import { auth } from "../../firebase";
+import { createUserWithEmailAndPassword } from "firebase/auth";
 import "./SignUp.scss";
 
 const SignUp = () => {
@@ -26,7 +28,19 @@ const SignUp = () => {
       password: "",
       confirmPassword: "",
     },
-    onSubmit: (values, { resetForm }) => {
+    onSubmit: async (values, { resetForm }) => {
+      const { email, password } = values;
+      try {
+        const response = await createUserWithEmailAndPassword(
+          auth,
+          email,
+          password
+        );
+        console.log(response);
+        console.log("Sign Up successful");
+      } catch (error) {
+        console.error(error.message);
+      }
       resetForm();
       setShowCnfPassword(false);
       setShowPassword(false);

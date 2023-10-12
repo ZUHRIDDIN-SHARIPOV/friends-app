@@ -5,11 +5,23 @@ import { BsLightningChargeFill, BsLightningCharge } from "react-icons/bs";
 import { VscChromeClose } from "react-icons/vsc";
 import "./Header.scss";
 import { NavLink } from "react-router-dom";
+import { auth } from "../../firebase";
+import { signOut } from "firebase/auth";
 
-const Header = ({ darkMode, checkDark }) => {
+const Header = ({ darkMode, checkDark, user }) => {
   const [open, setOpen] = useState(false);
   const menuMode = () => {
     setOpen(!open);
+  };
+  const userSignOut = async () => {
+    try {
+      setTimeout(async () => {
+        await signOut(auth);
+      }, 500);
+      console.log("Sign out successfull");
+    } catch (error) {
+      console.error(error.message);
+    }
   };
 
   return (
@@ -25,36 +37,66 @@ const Header = ({ darkMode, checkDark }) => {
               <li className="site-header__item" onClick={darkMode}>
                 {checkDark ? <BsLightningCharge /> : <BsLightningChargeFill />}
               </li>
-              <li className="site-header__item">
-                <NavLink to={"/home"}>Home</NavLink>
-              </li>
-              <li className="site-header__item">
-                <NavLink to={"/"}>Login</NavLink>
-              </li>
-              <li className="site-header__item">
-                <NavLink to={"/signUp"}>Sign Up</NavLink>
-              </li>
-              <li className="site-header__item">
-                <NavLink to={"/support"}>Support</NavLink>
-              </li>
+              {user && (
+                <li className="site-header__item">
+                  <NavLink to={"/home"}>Home</NavLink>
+                </li>
+              )}
+              {user && (
+                <li className="site-header__item">
+                  <NavLink to={"/support"}>Support</NavLink>
+                </li>
+              )}
+              {!user && (
+                <li className="site-header__item">
+                  <NavLink to={"/"}>Login</NavLink>
+                </li>
+              )}
+              {!user ? (
+                <li className="site-header__item">
+                  <NavLink to={"/signUp"}>Sign Up</NavLink>
+                </li>
+              ) : (
+                <li className="site-header__item">
+                  <div className="sign-out" onClick={userSignOut}>
+                    <input type="checkbox" />
+                    <label></label>
+                  </div>
+                </li>
+              )}
             </ul>
             <ul className={`site-header__menu-list ${open ? "menu__key" : ""}`}>
               <li className="site-header__menu-item">
                 <FaTwitter />
                 <h2>My classmates</h2>
               </li>
-              <li className="site-header__menu-item">
-                <NavLink to={"/home"}>Home</NavLink>
-              </li>
-              <li className="site-header__menu-item">
-                <NavLink to={"/"}>Login</NavLink>
-              </li>
-              <li className="site-header__menu-item">
-                <NavLink to={"/signUp"}>Sign Up</NavLink>
-              </li>
-              <li className="site-header__menu-item">
-                <NavLink to={"/support"}>Support</NavLink>
-              </li>
+              {user && (
+                <li className="site-header__menu-item">
+                  <NavLink to={"/home"}>Home</NavLink>
+                </li>
+              )}
+              {user && (
+                <li className="site-header__menu-item">
+                  <NavLink to={"/support"}>Support</NavLink>
+                </li>
+              )}
+              {!user && (
+                <li className="site-header__menu-item">
+                  <NavLink to={"/"}>Login</NavLink>
+                </li>
+              )}
+              {!user ? (
+                <li className="site-header__menu-item">
+                  <NavLink to={"/signUp"}>Sign Up</NavLink>
+                </li>
+              ) : (
+                <li className="site-header__menu-item">
+                  <div className="sign-out" onClick={userSignOut}>
+                    <input type="checkbox" />
+                    <label></label>
+                  </div>
+                </li>
+              )}
             </ul>
             <div className="site-header__menu-logo" onClick={menuMode}>
               {open ? <VscChromeClose /> : <TbMenu2 />}
