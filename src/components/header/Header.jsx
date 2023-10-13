@@ -15,14 +15,12 @@ const Header = ({ darkMode, checkDark, user }) => {
     setOpen(!open);
   };
   const [signIn, setSignIn] = useState(true);
-  const signInUser = () => {
-    setSignIn(!signIn);
-  };
+
   const userSignOut = async () => {
     try {
       setTimeout(async () => {
         await signOut(auth);
-        signInUser();
+        setSignIn(false);
       }, 500);
       console.log("Sign Out successfull");
     } catch (error) {
@@ -111,7 +109,7 @@ const Header = ({ darkMode, checkDark, user }) => {
         </div>
       </header>
       <LoginToastify user={user} />
-      <SignOutToastify signIn={signIn} />
+      <SignOutToastify signIn={signIn} setSignIn={setSignIn} />
     </>
   );
 };

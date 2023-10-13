@@ -2,7 +2,7 @@ import { memo } from "react";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
-const SignOutToastify = ({ signIn }) => {
+const SignOutToastify = ({ signIn, setSignIn }) => {
   const notify = () =>
     toast.warn("Sign out successfully", {
       position: "top-center",
@@ -16,7 +16,9 @@ const SignOutToastify = ({ signIn }) => {
     });
   if (!signIn) {
     notify();
+    setSignIn(true);
   }
+
   return (
     <>
       <ToastContainer
