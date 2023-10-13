@@ -3,9 +3,9 @@
   "name": "My classmates",
   "icons": [
     {
-      "src": "mc.png",
+      "src": "twitter.png",
       "type": "image/png",
-      "sizes": "250x250"
+      "sizes": "300x300"
     }
   ],
   "start_url": ".",
