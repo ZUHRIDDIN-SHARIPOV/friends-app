@@ -1,26 +1,40 @@
 .dark {
   .site-header {
     background: #000;
-    border-bottom: 1px solid #232536;
     transition: 0.2s;
   }
-  .site-header__logo svg,
-  h2 {
-    color: #fff;
-    transition: 0.1s;
+  .site-header__logo {
+    h2,
+    svg {
+      color: #fff;
+      transition: 0.1s;
+    }
+    &:hover {
+      svg {
+        color: blueviolet;
+      }
+      h2 {
+        color: blueviolet;
+      }
+      transition: 0.3s;
+    }
   }
   .site-header__item {
     a {
       color: #fff;
       transition: 0.1s;
-    }
-    .active {
-      border-bottom: 2px solid #fff;
+      &:hover {
+        color: blueviolet;
+      }
     }
   }
   .site-header__item:nth-child(1) svg {
     color: #fff;
     transition: 0.1s;
+    &:hover {
+      color: blueviolet;
+      transition: 0.3s;
+    }
   }
   .site-header__menu-logo svg {
     color: #fff;
@@ -28,6 +42,7 @@
   }
   .site-header__menu-list {
     background: #000;
+    border-right: 1px solid #232536;
     transition: 0.1s;
   }
   .site-header__menu-item:nth-child(1) {
@@ -37,16 +52,23 @@
     h2 {
       color: #fff;
     }
+    &:hover {
+      svg {
+        color: blueviolet;
+      }
+      h2 {
+        color: blueviolet;
+      }
+    }
     transition: 0.3s;
   }
   .site-header__menu-item {
     a {
       color: #fff;
       transition: 0.3s;
-    }
-    .active {
-      border-bottom: 1.5px solid #fff;
-      transition: 0.3s;
+      &:hover {
+        color: blueviolet;
+      }
     }
   }
   .login {
@@ -71,6 +93,9 @@
     input {
       background: #000;
       transition: 0.1s;
+      &::placeholder {
+        color: #fff;
+      }
     }
   }
 
@@ -96,6 +121,9 @@
     input {
       background: #000;
       transition: 0.1s;
+      &::placeholder {
+        color: #fff;
+      }
     }
   }
 }
