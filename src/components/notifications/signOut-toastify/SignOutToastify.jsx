@@ -1,8 +1,10 @@
-import { memo } from "react";
+import { createContext, useContext } from "react";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
-const SignOutToastify = ({ signIn, setSignIn }) => {
+export const SignOutContext = createContext();
+
+export const SignOutToastify = ({ children }) => {
   const notify = () =>
     toast.warn("Sign out successfully", {
       position: "top-center",
@@ -14,10 +16,6 @@ const SignOutToastify = ({ signIn, setSignIn }) => {
       progress: undefined,
       theme: "light",
     });
-  if (!signIn) {
-    notify();
-    setSignIn(true);
-  }
 
   return (
     <>
@@ -33,8 +31,11 @@ const SignOutToastify = ({ signIn, setSignIn }) => {
         pauseOnHover
         theme="light"
       />
+      <SignOutContext.Provider value={{ notify }}>
+        {children}
+      </SignOutContext.Provider>
     </>
   );
 };
 
-export default memo(SignOutToastify);
+export const SignOutNotify = () => useContext(SignOutContext);

@@ -1,8 +1,10 @@
-import { memo } from "react";
+import { createContext, useContext } from "react";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
-const ResetPasswordToastify = ({ check, setCheck }) => {
+export const ResetPasswordContext = createContext();
+
+export const ResetPasswordToastify = ({ children }) => {
   const notify = () =>
     toast.success("Message sent successfully", {
       position: "top-center",
@@ -14,10 +16,7 @@ const ResetPasswordToastify = ({ check, setCheck }) => {
       progress: undefined,
       theme: "light",
     });
-  if (check) {
-    notify();
-    setCheck(false);
-  }
+
   return (
     <>
       <ToastContainer
@@ -32,8 +31,11 @@ const ResetPasswordToastify = ({ check, setCheck }) => {
         pauseOnHover
         theme="light"
       />
+      <ResetPasswordContext.Provider value={{ notify }}>
+        {children}
+      </ResetPasswordContext.Provider>
     </>
   );
 };
 
-export default memo(ResetPasswordToastify);
+export const ResetPasswordNotify = () => useContext(ResetPasswordContext);

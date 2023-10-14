@@ -5,6 +5,8 @@ import { BsEye } from "react-icons/bs";
 import { auth } from "../../firebase";
 import { createUserWithEmailAndPassword } from "firebase/auth";
 import "./SignUp.scss";
+import { Loader } from "../../components/re-export";
+import { SignUpNotify } from "../../components/notifications/re-export";
 
 const SignUp = () => {
   const [showPassword, setShowPassword] = useState(false);
@@ -16,6 +18,9 @@ const SignUp = () => {
   const handleShowCnfPassword = () => {
     setShowCnfPassword(!showCnfPassword);
   };
+
+  const { notify } = SignUpNotify();
+  const [loading, setLoading] = useState(false);
 
   const emailRegex = /^\w+([/.-]?\w+)*@\w+([/.-]?\w+)*(\w{2,3})+$/;
   const emailRef = useRef(null);
@@ -34,7 +39,10 @@ const SignUp = () => {
       setShowPassword(false);
       try {
         const { email, password } = values;
+        setLoading(true);
         await createUserWithEmailAndPassword(auth, email, password);
+        setLoading(false);
+        notify();
       } catch (error) {
         console.error(error.message);
       }
@@ -76,6 +84,12 @@ const SignUp = () => {
       <main>
         <section className="signUp">
           <div className="container">
+            <div
+              className={`signUp-loader ${
+                loading ? "signUp-loader__key" : ""
+              }`}>
+              {loading && <Loader />}
+            </div>
             <div className="signUp__block">
               <p className="signUp__text">Welcome back 👋</p>
               <h2 className="signUp__title">Create an account</h2>

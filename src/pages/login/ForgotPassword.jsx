@@ -2,18 +2,19 @@ import { memo, useState } from "react";
 import { sendPasswordResetEmail } from "firebase/auth";
 import { database } from "../../firebase";
 import "./ForgotPassword.scss";
-import ResetPasswordToastify from "../../components/reset-password-toastify/ResetPasswordToastify";
 import { Loader } from "../../components/re-export";
+import { ResetPasswordNotify } from "../../components/notifications/re-export";
 
 const ForgotPassword = () => {
   const [loading, setLoading] = useState(false);
-  const [check, setCheck] = useState(false);
   const [email, setEmail] = useState("");
-  const [errorMessage, setErrorMessage] = useState("");
   const emailRegex = /^\w+([/.-]?\w+)*@\w+([/.-]?\w+)*(\w{2,3})+$/;
+  const [errorMessage, setErrorMessage] = useState("");
+  const { notify } = ResetPasswordNotify();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+
     if (!email) setErrorMessage("Email cannot be empty");
     else if (!emailRegex.test(email))
       setErrorMessage("Please enter a valid email address");
@@ -24,7 +25,7 @@ const ForgotPassword = () => {
         setLoading(true);
         await sendPasswordResetEmail(database, email);
         setLoading(false);
-        setCheck(true);
+        notify();
       } catch (error) {
         console.error(error.message);
       }
@@ -36,6 +37,10 @@ const ForgotPassword = () => {
       <main>
         <section className="forgot-password">
           <div className="container">
+            <div
+              className={`reset-loader ${loading ? "reset-loader__key" : ""}`}>
+              {loading && <Loader />}
+            </div>
             <div className="forgot-password__block">
               <h2 className="forgot-password__title">
                 Enter your email to reset your password
@@ -51,7 +56,6 @@ const ForgotPassword = () => {
                     onChange={(e) => setEmail(e.target.value)}
                   />
                   <span>{errorMessage ? errorMessage : ""}</span>
-                  <div className="reset-loader">{loading && <Loader />}</div>
                 </div>
                 <button type="submit" className="forgot-password__form-btn">
                   Reset
@@ -61,7 +65,6 @@ const ForgotPassword = () => {
           </div>
         </section>
       </main>
-      <ResetPasswordToastify check={check} setCheck={setCheck} />
     </>
   );
 };

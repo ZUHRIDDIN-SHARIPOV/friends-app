@@ -6,12 +6,16 @@ import { BsEye } from "react-icons/bs";
 import { auth } from "../../firebase";
 import { signInWithEmailAndPassword } from "firebase/auth";
 import "./Login.scss";
+import { LoginNotify } from "../../components/notifications/re-export";
+import { Loader } from "../../components/re-export";
 
 const Login = () => {
   const [showPassword, setShowPassword] = useState(false);
   const handleShowPassword = () => {
     setShowPassword(!showPassword);
   };
+  const { notify } = LoginNotify();
+  const [loading, setLoading] = useState(false);
 
   const emailRegex = /^\w+([/.-]?\w+)*@\w+([/.-]?\w+)*(\w{2,3})+$/;
   const emailRef = useRef(null);
@@ -27,7 +31,10 @@ const Login = () => {
       setShowPassword(false);
       try {
         const { email, password } = values;
+        setLoading(true);
         await signInWithEmailAndPassword(auth, email, password);
+        setLoading(false);
+        notify();
       } catch (error) {
         console.error(error.message);
       }
@@ -63,6 +70,10 @@ const Login = () => {
       <main>
         <section className="login">
           <div className="container">
+            <div
+              className={`login-loader ${loading ? "login-loader__key" : ""}`}>
+              {loading && <Loader />}
+            </div>
             <div className="login__block">
               <p className="login__text">Welcome back 👋</p>
               <h2 className="login__title">Login to your account</h2>

@@ -1,10 +1,12 @@
-import { memo } from "react";
+import { createContext, useContext } from "react";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
-const LoginToastify = ({ user }) => {
+export const SignUpContext = createContext();
+
+export const SignUpToastify = ({ children }) => {
   const notify = () =>
-    toast.success("Login successfully", {
+    toast.success("You have successfully registered", {
       position: "top-center",
       autoClose: 1700,
       hideProgressBar: false,
@@ -14,9 +16,7 @@ const LoginToastify = ({ user }) => {
       progress: undefined,
       theme: "light",
     });
-  if (user) {
-    notify();
-  }
+
   return (
     <>
       <ToastContainer
@@ -31,8 +31,11 @@ const LoginToastify = ({ user }) => {
         pauseOnHover
         theme="light"
       />
+      <SignUpContext.Provider value={{ notify }}>
+        {children}
+      </SignUpContext.Provider>
     </>
   );
 };
 
-export default memo(LoginToastify);
+export const SignUpNotify = () => useContext(SignUpContext);
