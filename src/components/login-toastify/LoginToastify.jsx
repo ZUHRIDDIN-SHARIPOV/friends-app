@@ -6,7 +6,7 @@ const LoginToastify = ({ user }) => {
   const notify = () =>
     toast.success("Login successfully", {
       position: "top-center",
-      autoClose: 700,
+      autoClose: 1700,
       hideProgressBar: false,
       closeOnClick: true,
       pauseOnHover: true,

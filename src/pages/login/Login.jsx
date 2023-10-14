@@ -28,7 +28,6 @@ const Login = () => {
       try {
         const { email, password } = values;
         await signInWithEmailAndPassword(auth, email, password);
-        console.log("Login successful");
       } catch (error) {
         console.error(error.message);
       }
@@ -112,7 +111,7 @@ const Login = () => {
               </form>
               <ul className="login__list">
                 <li className="login__item">
-                  <Link>Forgot Password ?</Link>
+                  <Link to={"/reset"}>Forgot Password ?</Link>
                 </li>
                 <li className="login__item">
                   <Link to={"/signUp"}>Create an account</Link>

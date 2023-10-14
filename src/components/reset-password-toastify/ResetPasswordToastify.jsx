@@ -2,9 +2,9 @@ import { memo } from "react";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
-const SignOutToastify = ({ signIn, setSignIn }) => {
+const ResetPasswordToastify = ({ check, setCheck }) => {
   const notify = () =>
-    toast.warn("Sign out successfully", {
+    toast.success("Message sent successfully", {
       position: "top-center",
       autoClose: 1700,
       hideProgressBar: false,
@@ -14,11 +14,10 @@ const SignOutToastify = ({ signIn, setSignIn }) => {
       progress: undefined,
       theme: "light",
     });
-  if (!signIn) {
+  if (check) {
     notify();
-    setSignIn(true);
+    setCheck(false);
   }
-
   return (
     <>
       <ToastContainer
@@ -37,4 +36,4 @@ const SignOutToastify = ({ signIn, setSignIn }) => {
   );
 };
 
-export default memo(SignOutToastify);
+export default memo(ResetPasswordToastify);

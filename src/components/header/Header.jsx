@@ -22,7 +22,6 @@ const Header = ({ darkMode, checkDark, user }) => {
         await signOut(auth);
         setSignIn(false);
       }, 500);
-      console.log("Sign Out successfull");
     } catch (error) {
       console.error(error.message);
     }

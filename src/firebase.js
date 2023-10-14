@@ -1,3 +1,4 @@
+import { getAuth } from "firebase/auth";
 import firebase from "firebase/compat/app";
 import "firebase/compat/auth";
 
@@ -13,3 +14,4 @@ const app = firebase.initializeApp({
 const auth = app.auth();
 export { auth };
 export default app;
+export const database = getAuth(app);

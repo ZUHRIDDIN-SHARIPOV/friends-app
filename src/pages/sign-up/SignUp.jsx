@@ -35,7 +35,6 @@ const SignUp = () => {
       try {
         const { email, password } = values;
         await createUserWithEmailAndPassword(auth, email, password);
-        console.log("Sign Up successful");
       } catch (error) {
         console.error(error.message);
       }
