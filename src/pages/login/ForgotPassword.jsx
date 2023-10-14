@@ -1,4 +1,4 @@
-import { memo, useRef, useState } from "react";
+import { memo, useState } from "react";
 import { sendPasswordResetEmail } from "firebase/auth";
 import { database } from "../../firebase";
 import "./ForgotPassword.scss";
@@ -9,13 +9,11 @@ const ForgotPassword = () => {
   const [loading, setLoading] = useState(false);
   const [check, setCheck] = useState(false);
   const [email, setEmail] = useState("");
-  const emailRef = useRef(null);
   const [errorMessage, setErrorMessage] = useState("");
   const emailRegex = /^\w+([/.-]?\w+)*@\w+([/.-]?\w+)*(\w{2,3})+$/;
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    emailRef.current.focus();
     if (!email) setErrorMessage("Email cannot be empty");
     else if (!emailRegex.test(email))
       setErrorMessage("Please enter a valid email address");
@@ -51,7 +49,6 @@ const ForgotPassword = () => {
                     placeholder="Please enter your email"
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
-                    ref={emailRef}
                   />
                   <span>{errorMessage ? errorMessage : ""}</span>
                   <div className="reset-loader">{loading && <Loader />}</div>
