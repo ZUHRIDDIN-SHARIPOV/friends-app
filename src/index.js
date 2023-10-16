@@ -4,25 +4,14 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import "./assets/fonts/fonts.scss";
 import "./index.css";
 import App from "./App";
-import {
-  LoginToastify,
-  ResetPasswordToastify,
-  SignOutToastify,
-  SignUpToastify,
-} from "./components/notifications/re-export";
 import { AuthUserComponent } from "./auth/AuthUserComponent";
+import { Notifications } from "./components/re-export";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <AuthUserComponent>
-    <LoginToastify>
-      <ResetPasswordToastify>
-        <SignUpToastify>
-          <SignOutToastify>
-            <App />
-          </SignOutToastify>
-        </SignUpToastify>
-      </ResetPasswordToastify>
-    </LoginToastify>
+    <Notifications>
+      <App />
+    </Notifications>
   </AuthUserComponent>
 );

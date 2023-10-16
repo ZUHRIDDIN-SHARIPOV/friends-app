@@ -1,16 +1,15 @@
 import { memo, useState } from "react";
+import "./ForgotPassword.scss";
 import { sendPasswordResetEmail } from "firebase/auth";
 import { database } from "../../auth/firebase";
-import { Loader } from "../../components/re-export";
-import { ResetPasswordNotify } from "../../components/notifications/re-export";
-import "./ForgotPassword.scss";
+import { Loader, useNotifications } from "../../components/re-export";
 
 const ForgotPassword = () => {
   const [loading, setLoading] = useState(false);
   const [email, setEmail] = useState("");
   const emailRegex = /^\w+([/.-]?\w+)*@\w+([/.-]?\w+)*(\w{2,3})+$/;
   const [errorMessage, setErrorMessage] = useState("");
-  const { notify } = ResetPasswordNotify();
+  const { notify } = useNotifications();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -25,7 +24,7 @@ const ForgotPassword = () => {
         setLoading(true);
         await sendPasswordResetEmail(database, email);
         setLoading(false);
-        notify();
+        notify("bottom-right", "success", "dark", "Message sent successfully");
       } catch (error) {
         console.error(error.message);
       }

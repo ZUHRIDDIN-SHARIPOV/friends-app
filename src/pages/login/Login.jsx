@@ -1,13 +1,12 @@
 import { memo, useRef, useState } from "react";
+import "./Login.scss";
 import { Link } from "react-router-dom";
 import { useFormik } from "formik";
 import { BsEyeSlash } from "react-icons/bs";
 import { BsEye } from "react-icons/bs";
 import { auth } from "../../auth/firebase";
 import { signInWithEmailAndPassword } from "firebase/auth";
-import { LoginNotify } from "../../components/notifications/re-export";
-import { Loader } from "../../components/re-export";
-import "./Login.scss";
+import { Loader, useNotifications } from "../../components/re-export";
 
 const Login = () => {
   const [showPassword, setShowPassword] = useState(false);
@@ -16,7 +15,7 @@ const Login = () => {
   };
 
   const [loading, setLoading] = useState(false);
-  const { notify } = LoginNotify();
+  const { notify } = useNotifications();
 
   const emailRegex = /^\w+([/.-]?\w+)*@\w+([/.-]?\w+)*(\w{2,3})+$/;
   const emailRef = useRef(null);
@@ -35,7 +34,7 @@ const Login = () => {
         setLoading(true);
         await signInWithEmailAndPassword(auth, email, password);
         setLoading(false);
-        notify();
+        notify("bottom-right", "info", "dark", "Login successfully");
       } catch (error) {
         console.error(error.message);
       }

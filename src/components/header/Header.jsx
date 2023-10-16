@@ -1,4 +1,5 @@
 import { memo, useState } from "react";
+import "./Header.scss";
 import { FaTwitter } from "react-icons/fa";
 import { TbMenu2 } from "react-icons/tb";
 import { BsLightningChargeFill, BsLightningCharge } from "react-icons/bs";
@@ -6,23 +7,22 @@ import { VscChromeClose } from "react-icons/vsc";
 import { NavLink } from "react-router-dom";
 import { auth } from "../../auth/firebase";
 import { signOut } from "firebase/auth";
-import { SignOutNotify } from "../notifications/re-export";
 import { AuthUser } from "../../auth/AuthUserComponent";
-import "./Header.scss";
+import { useNotifications } from "../re-export";
 
 const Header = ({ dark, darkMode }) => {
   const { user } = AuthUser();
+  const { notify } = useNotifications();
   const [open, setOpen] = useState(false);
   const menuMode = () => {
     setOpen(!open);
   };
-  const { notify } = SignOutNotify();
 
   const userSignOut = async () => {
     try {
       setTimeout(async () => {
         await signOut(auth);
-        notify();
+        notify("bottom-left", "warning", "dark", "Sign out successfully");
       }, 500);
     } catch (error) {
       console.error(error.message);

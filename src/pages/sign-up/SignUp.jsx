@@ -1,12 +1,11 @@
 import { memo, useState, useRef } from "react";
+import "./SignUp.scss";
 import { useFormik } from "formik";
 import { BsEyeSlash } from "react-icons/bs";
 import { BsEye } from "react-icons/bs";
 import { auth } from "../../auth/firebase";
 import { createUserWithEmailAndPassword } from "firebase/auth";
-import { Loader } from "../../components/re-export";
-import { SignUpNotify } from "../../components/notifications/re-export";
-import "./SignUp.scss";
+import { Loader, useNotifications } from "../../components/re-export";
 
 const SignUp = () => {
   const [showPassword, setShowPassword] = useState(false);
@@ -20,7 +19,7 @@ const SignUp = () => {
   };
 
   const [loading, setLoading] = useState(false);
-  const { notify } = SignUpNotify();
+  const { notify } = useNotifications();
 
   const emailRegex = /^\w+([/.-]?\w+)*@\w+([/.-]?\w+)*(\w{2,3})+$/;
   const emailRef = useRef(null);
@@ -42,7 +41,12 @@ const SignUp = () => {
         setLoading(true);
         await createUserWithEmailAndPassword(auth, email, password);
         setLoading(false);
-        notify();
+        notify(
+          "bottom-left",
+          "success",
+          "colored",
+          "You have successfully registered"
+        );
       } catch (error) {
         console.error(error.message);
       }
