@@ -10,16 +10,19 @@ import {
   SignOutToastify,
   SignUpToastify,
 } from "./components/notifications/re-export";
+import { AuthUserComponent } from "./auth/AuthUserComponent";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
-  <LoginToastify>
-    <ResetPasswordToastify>
-      <SignUpToastify>
-        <SignOutToastify>
-          <App />
-        </SignOutToastify>
-      </SignUpToastify>
-    </ResetPasswordToastify>
-  </LoginToastify>
+  <AuthUserComponent>
+    <LoginToastify>
+      <ResetPasswordToastify>
+        <SignUpToastify>
+          <SignOutToastify>
+            <App />
+          </SignOutToastify>
+        </SignUpToastify>
+      </ResetPasswordToastify>
+    </LoginToastify>
+  </AuthUserComponent>
 );

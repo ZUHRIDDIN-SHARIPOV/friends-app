@@ -2,7 +2,7 @@ import { getAuth } from "firebase/auth";
 import firebase from "firebase/compat/app";
 import "firebase/compat/auth";
 
-const app = firebase.initializeApp({
+export const app = firebase.initializeApp({
   apiKey: "AIzaSyAV7QaAYyP0a9dj7AkQgnIzaTEo3_vxjik",
   authDomain: "my-classmates-141d8.firebaseapp.com",
   projectId: "my-classmates-141d8",
@@ -11,7 +11,5 @@ const app = firebase.initializeApp({
   appId: "1:886006151433:web:a1e0bd4290ec609c8a7bd8",
 });
 
-const auth = app.auth();
-export { auth };
-export default app;
+export const auth = app.auth();
 export const database = getAuth(app);

@@ -1,9 +1,16 @@
 import { memo } from "react";
+import "./Support.scss";
 
 const Support = () => {
   return (
     <>
-      <div>Support</div>
+      <main>
+        <section className="support">
+          <div className="container">
+            <div className="support__block"></div>
+          </div>
+        </section>
+      </main>
     </>
   );
 };

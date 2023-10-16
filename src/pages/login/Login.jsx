@@ -3,19 +3,20 @@ import { Link } from "react-router-dom";
 import { useFormik } from "formik";
 import { BsEyeSlash } from "react-icons/bs";
 import { BsEye } from "react-icons/bs";
-import { auth } from "../../firebase";
+import { auth } from "../../auth/firebase";
 import { signInWithEmailAndPassword } from "firebase/auth";
-import "./Login.scss";
 import { LoginNotify } from "../../components/notifications/re-export";
 import { Loader } from "../../components/re-export";
+import "./Login.scss";
 
 const Login = () => {
   const [showPassword, setShowPassword] = useState(false);
   const handleShowPassword = () => {
     setShowPassword(!showPassword);
   };
-  const { notify } = LoginNotify();
+
   const [loading, setLoading] = useState(false);
+  const { notify } = LoginNotify();
 
   const emailRegex = /^\w+([/.-]?\w+)*@\w+([/.-]?\w+)*(\w{2,3})+$/;
   const emailRef = useRef(null);

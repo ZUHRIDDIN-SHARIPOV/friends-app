@@ -1,9 +1,9 @@
 import { memo, useState } from "react";
 import { sendPasswordResetEmail } from "firebase/auth";
-import { database } from "../../firebase";
-import "./ForgotPassword.scss";
+import { database } from "../../auth/firebase";
 import { Loader } from "../../components/re-export";
 import { ResetPasswordNotify } from "../../components/notifications/re-export";
+import "./ForgotPassword.scss";
 
 const ForgotPassword = () => {
   const [loading, setLoading] = useState(false);

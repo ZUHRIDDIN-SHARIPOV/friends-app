@@ -1,9 +1,12 @@
 import { memo } from "react";
+import { Hero } from "../../components/re-export";
 
 const Home = () => {
   return (
     <>
-      <main></main>
+      <main>
+        <Hero />
+      </main>
     </>
   );
 };

@@ -3,18 +3,19 @@ import { FaTwitter } from "react-icons/fa";
 import { TbMenu2 } from "react-icons/tb";
 import { BsLightningChargeFill, BsLightningCharge } from "react-icons/bs";
 import { VscChromeClose } from "react-icons/vsc";
-import "./Header.scss";
 import { NavLink } from "react-router-dom";
-import { auth } from "../../firebase";
+import { auth } from "../../auth/firebase";
 import { signOut } from "firebase/auth";
 import { SignOutNotify } from "../notifications/re-export";
+import { AuthUser } from "../../auth/AuthUserComponent";
+import "./Header.scss";
 
-const Header = ({ darkMode, checkDark, user }) => {
+const Header = ({ dark, darkMode }) => {
+  const { user } = AuthUser();
   const [open, setOpen] = useState(false);
   const menuMode = () => {
     setOpen(!open);
   };
-
   const { notify } = SignOutNotify();
 
   const userSignOut = async () => {
@@ -39,7 +40,7 @@ const Header = ({ darkMode, checkDark, user }) => {
             </div>
             <ul className="site-header__list">
               <li className="site-header__item" onClick={darkMode}>
-                {checkDark ? <BsLightningCharge /> : <BsLightningChargeFill />}
+                {dark ? <BsLightningCharge /> : <BsLightningChargeFill />}
               </li>
               {user && (
                 <li className="site-header__item">

@@ -2,19 +2,22 @@ import { memo } from "react";
 import { BrowserRouter, Route, Routes, Navigate } from "react-router-dom";
 import { Header } from "../components/re-export";
 import {
+  Error404,
   Home,
+  ForgotPassword,
   Login,
   SignUp,
-  Error,
   Support,
-  ForgotPassword,
 } from "../pages/re-export";
+import { AuthUser } from "../auth/AuthUserComponent";
 
-const Router = ({ user, darkMode, checkDark }) => {
+const Router = ({ dark, darkMode }) => {
+  const { user } = AuthUser();
+
   return (
     <>
       <BrowserRouter>
-        <Header user={user} darkMode={darkMode} checkDark={checkDark} />
+        <Header dark={dark} darkMode={darkMode} />
         <Routes>
           <Route
             path="/"
@@ -34,7 +37,7 @@ const Router = ({ user, darkMode, checkDark }) => {
           />
           <Route path="/reset" element={<ForgotPassword />} />
           <Route path="*" element={<Navigate to="/error" />} />
-          <Route path="/error" element={<Error />} />
+          <Route path="/error" element={<Error404 />} />
         </Routes>
       </BrowserRouter>
     </>

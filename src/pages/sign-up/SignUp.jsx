@@ -2,11 +2,11 @@ import { memo, useState, useRef } from "react";
 import { useFormik } from "formik";
 import { BsEyeSlash } from "react-icons/bs";
 import { BsEye } from "react-icons/bs";
-import { auth } from "../../firebase";
+import { auth } from "../../auth/firebase";
 import { createUserWithEmailAndPassword } from "firebase/auth";
-import "./SignUp.scss";
 import { Loader } from "../../components/re-export";
 import { SignUpNotify } from "../../components/notifications/re-export";
+import "./SignUp.scss";
 
 const SignUp = () => {
   const [showPassword, setShowPassword] = useState(false);
@@ -19,8 +19,8 @@ const SignUp = () => {
     setShowCnfPassword(!showCnfPassword);
   };
 
-  const { notify } = SignUpNotify();
   const [loading, setLoading] = useState(false);
+  const { notify } = SignUpNotify();
 
   const emailRegex = /^\w+([/.-]?\w+)*@\w+([/.-]?\w+)*(\w{2,3})+$/;
   const emailRef = useRef(null);
