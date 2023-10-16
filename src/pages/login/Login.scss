@@ -1,13 +1,11 @@
 .login {
-  margin-top: 89px;
+  padding-top: 144px;
   height: 100vh;
 }
 .login__block {
   max-width: 700px;
   width: 100%;
-  margin-right: auto;
-  margin-left: auto;
-  padding-top: 55px;
+  margin: 0 auto;
   .login__text {
     font-family: Poppins;
     font-weight: normal;
@@ -122,11 +120,9 @@
 }
 
 @media only screen and (max-width: 860px) {
-  .login__block {
-    padding-top: 30px;
-  }
   .login {
-    margin-top: 84px;
+    padding-top: 114px;
+    transition: 0.3s;
   }
 }
 @media only screen and (max-width: 830px) {
@@ -145,7 +141,8 @@
 }
 @media only screen and (max-width: 361px) {
   .login {
-    margin-top: 78px;
+    padding-top: 103px;
+    transition: 0.3s;
   }
   .login__block {
     .login__text {
