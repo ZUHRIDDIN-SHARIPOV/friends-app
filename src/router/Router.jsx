@@ -4,8 +4,8 @@ import { Header } from "../components/re-export";
 import {
   Error404,
   Home,
-  ForgotPassword,
   Login,
+  ForgotPassword,
   SignUp,
   Support,
 } from "../pages/re-export";
