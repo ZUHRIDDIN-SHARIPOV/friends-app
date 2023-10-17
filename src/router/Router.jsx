@@ -9,15 +9,15 @@ import {
   SignUp,
   Support,
 } from "../pages/re-export";
-import { AuthUser } from "../auth/AuthUserComponent";
+import { useAuthUser } from "../auth/AuthUser";
 
-const Router = ({ dark, darkMode }) => {
-  const { user } = AuthUser();
+const Router = () => {
+  const { user } = useAuthUser();
 
   return (
     <>
       <BrowserRouter>
-        <Header dark={dark} darkMode={darkMode} />
+        <Header />
         <Routes>
           <Route
             path="/"

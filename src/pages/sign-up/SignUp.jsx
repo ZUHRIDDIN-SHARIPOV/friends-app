@@ -6,6 +6,7 @@ import { BsEye } from "react-icons/bs";
 import { auth } from "../../auth/firebase";
 import { createUserWithEmailAndPassword } from "firebase/auth";
 import { Loader, useNotifications } from "../../components/re-export";
+import { useDarkMode } from "../../App";
 
 const SignUp = () => {
   const [showPassword, setShowPassword] = useState(false);
@@ -19,6 +20,7 @@ const SignUp = () => {
   };
 
   const [loading, setLoading] = useState(false);
+  const { dark } = useDarkMode();
   const { notify } = useNotifications();
 
   const emailRegex = /^\w+([/.-]?\w+)*@\w+([/.-]?\w+)*(\w{2,3})+$/;
@@ -41,14 +43,50 @@ const SignUp = () => {
         setLoading(true);
         await createUserWithEmailAndPassword(auth, email, password);
         setLoading(false);
-        notify(
-          "bottom-left",
-          "success",
-          "colored",
-          "You have successfully registered"
-        );
+        dark
+          ? notify(
+              "bottom-left",
+              "success",
+              "colored",
+              "You have successfully registered"
+            )
+          : notify(
+              "bottom-left",
+              "success",
+              "light",
+              "You have successfully registered"
+            );
       } catch (error) {
-        console.error(error.message);
+        setLoading(false);
+        if (error.code === "auth/invalid-email") {
+          dark
+            ? notify(
+                "bottom-right",
+                "error",
+                "colored",
+                "The email address was entered incorrectly"
+              )
+            : notify(
+                "bottom-right",
+                "error",
+                "light",
+                "The email address was entered incorrectly"
+              );
+        } else if (error.code === "auth/email-already-in-use") {
+          dark
+            ? notify(
+                "bottom-right",
+                "error",
+                "colored",
+                "This account has already been created"
+              )
+            : notify(
+                "bottom-right",
+                "error",
+                "light",
+                "This account has already been created"
+              );
+        }
       }
     },
     validate: (value) => {

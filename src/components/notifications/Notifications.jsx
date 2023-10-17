@@ -2,11 +2,10 @@ import { createContext, memo, useContext } from "react";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
-export const NotificationsContext = createContext();
+export const notificationsContext = createContext();
 
 const Notifications = ({ children }) => {
-  const notify = (position, type, theme, message) => {
-    const location = position;
+  const notify = (location, type, theme, message) => {
     if (type === "info" && theme === "light") {
       return toast.info(message, {
         position: location,
@@ -184,13 +183,13 @@ const Notifications = ({ children }) => {
         draggable
         pauseOnHover
       />
-      <NotificationsContext.Provider value={{ notify }}>
+      <notificationsContext.Provider value={{ notify }}>
         {children}
-      </NotificationsContext.Provider>
+      </notificationsContext.Provider>
     </>
   );
 };
 
 export default memo(Notifications);
 
-export const useNotifications = () => useContext(NotificationsContext);
+export const useNotifications = () => useContext(notificationsContext);

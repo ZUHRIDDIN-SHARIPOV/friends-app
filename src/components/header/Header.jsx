@@ -7,12 +7,15 @@ import { VscChromeClose } from "react-icons/vsc";
 import { NavLink } from "react-router-dom";
 import { auth } from "../../auth/firebase";
 import { signOut } from "firebase/auth";
-import { AuthUser } from "../../auth/AuthUserComponent";
+import { useAuthUser } from "../../auth/AuthUser";
 import { useNotifications } from "../re-export";
+import { useDarkMode } from "../../App";
 
-const Header = ({ dark, darkMode }) => {
-  const { user } = AuthUser();
+const Header = () => {
+  const { user } = useAuthUser();
+  const { dark, darkMode } = useDarkMode();
   const { notify } = useNotifications();
+
   const [open, setOpen] = useState(false);
   const menuMode = () => {
     setOpen(!open);

@@ -3,13 +3,17 @@ import "./ForgotPassword.scss";
 import { sendPasswordResetEmail } from "firebase/auth";
 import { database } from "../../auth/firebase";
 import { Loader, useNotifications } from "../../components/re-export";
+import { useDarkMode } from "../../App";
 
 const ForgotPassword = () => {
   const [loading, setLoading] = useState(false);
+
   const [email, setEmail] = useState("");
   const emailRegex = /^\w+([/.-]?\w+)*@\w+([/.-]?\w+)*(\w{2,3})+$/;
   const [errorMessage, setErrorMessage] = useState("");
+
   const { notify } = useNotifications();
+  const { dark } = useDarkMode();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -24,9 +28,36 @@ const ForgotPassword = () => {
         setLoading(true);
         await sendPasswordResetEmail(database, email);
         setLoading(false);
-        notify("bottom-right", "success", "dark", "Message sent successfully");
+        dark
+          ? notify(
+              "bottom-right",
+              "success",
+              "colored",
+              "Message sent successfully"
+            )
+          : notify(
+              "bottom-right",
+              "success",
+              "dark",
+              "Message sent successfully"
+            );
       } catch (error) {
-        console.error(error.message);
+        setLoading(false);
+        if (error.code === "auth/invalid-email") {
+          dark
+            ? notify(
+                "bottom-right",
+                "error",
+                "colored",
+                "The email address was entered incorrectly"
+              )
+            : notify(
+                "bottom-right",
+                "error",
+                "light",
+                "The email address was entered incorrectly"
+              );
+        }
       }
     }
   };

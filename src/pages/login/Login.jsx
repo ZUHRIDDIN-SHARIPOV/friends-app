@@ -7,6 +7,7 @@ import { BsEye } from "react-icons/bs";
 import { auth } from "../../auth/firebase";
 import { signInWithEmailAndPassword } from "firebase/auth";
 import { Loader, useNotifications } from "../../components/re-export";
+import { useDarkMode } from "../../App";
 
 const Login = () => {
   const [showPassword, setShowPassword] = useState(false);
@@ -15,6 +16,7 @@ const Login = () => {
   };
 
   const [loading, setLoading] = useState(false);
+  const { dark } = useDarkMode();
   const { notify } = useNotifications();
 
   const emailRegex = /^\w+([/.-]?\w+)*@\w+([/.-]?\w+)*(\w{2,3})+$/;
@@ -34,9 +36,30 @@ const Login = () => {
         setLoading(true);
         await signInWithEmailAndPassword(auth, email, password);
         setLoading(false);
-        notify("bottom-right", "info", "dark", "Login successfully");
+        dark
+          ? notify("bottom-right", "info", "dark", "Login successfully")
+          : notify("bottom-right", "info", "light", "Login successfully");
       } catch (error) {
-        console.error(error.message);
+        setLoading(false);
+        if (error.code === "auth/invalid-login-credentials") {
+          dark
+            ? notify("bottom-right", "error", "colored", "User not found")
+            : notify("bottom-right", "error", "light", "User not found");
+        } else if (error.code === "auth/user-disabled") {
+          dark
+            ? notify(
+                "bottom-right",
+                "error",
+                "colored",
+                "The user account has been blocked by the administrator"
+              )
+            : notify(
+                "bottom-right",
+                "error",
+                "light",
+                "The user account has been blocked by the administrator"
+              );
+        }
       }
     },
     validate: (value) => {

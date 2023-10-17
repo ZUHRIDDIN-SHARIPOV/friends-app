@@ -1,6 +1,8 @@
-import { memo, useState } from "react";
+import { createContext, memo, useContext, useState } from "react";
 import "./App.scss";
 import Router from "./router/Router";
+
+export const darkModeContext = createContext();
 
 function App() {
   const [dark, setDark] = useState(false);
@@ -11,10 +13,14 @@ function App() {
   return (
     <>
       <div className={`App ${dark ? "dark" : ""}`}>
-        <Router dark={dark} darkMode={darkMode} />
+        <darkModeContext.Provider value={{ dark, darkMode }}>
+          <Router />
+        </darkModeContext.Provider>
       </div>
     </>
   );
 }
 
 export default memo(App);
+
+export const useDarkMode = () => useContext(darkModeContext);
