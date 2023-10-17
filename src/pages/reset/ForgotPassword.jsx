@@ -33,12 +33,14 @@ const ForgotPassword = () => {
               "bottom-right",
               "success",
               "colored",
+              5000,
               "Message sent successfully"
             )
           : notify(
               "bottom-right",
               "success",
               "dark",
+              5000,
               "Message sent successfully"
             );
       } catch (error) {
@@ -49,12 +51,14 @@ const ForgotPassword = () => {
                 "bottom-right",
                 "error",
                 "colored",
+                5000,
                 "The email address was entered incorrectly"
               )
             : notify(
                 "bottom-right",
                 "error",
                 "light",
+                5000,
                 "The email address was entered incorrectly"
               );
         }

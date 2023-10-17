@@ -37,26 +37,40 @@ const Login = () => {
         await signInWithEmailAndPassword(auth, email, password);
         setLoading(false);
         dark
-          ? notify("bottom-right", "info", "dark", "Login successfully")
-          : notify("bottom-right", "info", "light", "Login successfully");
+          ? notify("bottom-right", "info", "dark", 5000, "Login successfully")
+          : notify("bottom-right", "info", "light", 5000, "Login successfully");
       } catch (error) {
         setLoading(false);
         if (error.code === "auth/invalid-login-credentials") {
           dark
-            ? notify("bottom-right", "error", "colored", "User not found")
-            : notify("bottom-right", "error", "light", "User not found");
+            ? notify(
+                "bottom-right",
+                "error",
+                "colored",
+                5000,
+                "User not found, check email and password, then try again"
+              )
+            : notify(
+                "bottom-right",
+                "error",
+                "light",
+                5000,
+                "User not found, check email and password, then try again"
+              );
         } else if (error.code === "auth/user-disabled") {
           dark
             ? notify(
                 "bottom-right",
                 "error",
                 "colored",
+                5000,
                 "The user account has been blocked by the administrator"
               )
             : notify(
                 "bottom-right",
                 "error",
                 "light",
+                5000,
                 "The user account has been blocked by the administrator"
               );
         }

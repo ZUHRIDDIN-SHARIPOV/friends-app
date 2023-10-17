@@ -25,7 +25,7 @@ const Header = () => {
     try {
       setTimeout(async () => {
         await signOut(auth);
-        notify("bottom-left", "warning", "dark", "Sign out successfully");
+        notify("bottom-left", "warning", "dark", 5000, "Sign out successfully");
       }, 500);
     } catch (error) {
       console.error(error.message);

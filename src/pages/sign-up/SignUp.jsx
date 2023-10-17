@@ -48,12 +48,14 @@ const SignUp = () => {
               "bottom-left",
               "success",
               "colored",
+              5000,
               "You have successfully registered"
             )
           : notify(
               "bottom-left",
               "success",
               "light",
+              5000,
               "You have successfully registered"
             );
       } catch (error) {
@@ -64,12 +66,14 @@ const SignUp = () => {
                 "bottom-right",
                 "error",
                 "colored",
+                5000,
                 "The email address was entered incorrectly"
               )
             : notify(
                 "bottom-right",
                 "error",
                 "light",
+                5000,
                 "The email address was entered incorrectly"
               );
         } else if (error.code === "auth/email-already-in-use") {
@@ -78,12 +82,14 @@ const SignUp = () => {
                 "bottom-right",
                 "error",
                 "colored",
+                5000,
                 "This account has already been created"
               )
             : notify(
                 "bottom-right",
                 "error",
                 "light",
+                5000,
                 "This account has already been created"
               );
         }

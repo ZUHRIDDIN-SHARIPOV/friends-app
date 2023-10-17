@@ -5,11 +5,11 @@ import "react-toastify/dist/ReactToastify.css";
 export const notificationsContext = createContext();
 
 const Notifications = ({ children }) => {
-  const notify = (location, type, theme, message) => {
+  const notify = (location, type, theme, time, message) => {
     if (type === "info" && theme === "light") {
       return toast.info(message, {
         position: location,
-        autoClose: 1700,
+        autoClose: time,
         hideProgressBar: false,
         closeOnClick: true,
         pauseOnHover: true,
@@ -20,7 +20,7 @@ const Notifications = ({ children }) => {
     } else if (type === "info" && theme === "dark") {
       return toast.info(message, {
         position: location,
-        autoClose: 1700,
+        autoClose: time,
         hideProgressBar: false,
         closeOnClick: true,
         pauseOnHover: true,
@@ -31,7 +31,7 @@ const Notifications = ({ children }) => {
     } else if (type === "info" && theme === "colored") {
       return toast.info(message, {
         position: location,
-        autoClose: 1700,
+        autoClose: time,
         hideProgressBar: false,
         closeOnClick: true,
         pauseOnHover: true,
@@ -44,7 +44,7 @@ const Notifications = ({ children }) => {
     if (type === "success" && theme === "light") {
       return toast.success(message, {
         position: location,
-        autoClose: 1700,
+        autoClose: time,
         hideProgressBar: false,
         closeOnClick: true,
         pauseOnHover: true,
@@ -55,7 +55,7 @@ const Notifications = ({ children }) => {
     } else if (type === "success" && theme === "dark") {
       return toast.success(message, {
         position: location,
-        autoClose: 1700,
+        autoClose: time,
         hideProgressBar: false,
         closeOnClick: true,
         pauseOnHover: true,
@@ -66,7 +66,7 @@ const Notifications = ({ children }) => {
     } else if (type === "success" && theme === "colored") {
       return toast.success(message, {
         position: location,
-        autoClose: 1700,
+        autoClose: time,
         hideProgressBar: false,
         closeOnClick: true,
         pauseOnHover: true,
@@ -79,7 +79,7 @@ const Notifications = ({ children }) => {
     if (type === "warning" && theme === "light") {
       return toast.warn(message, {
         position: location,
-        autoClose: 1700,
+        autoClose: time,
         hideProgressBar: false,
         closeOnClick: true,
         pauseOnHover: true,
@@ -90,7 +90,7 @@ const Notifications = ({ children }) => {
     } else if (type === "warning" && theme === "dark") {
       return toast.warn(message, {
         position: location,
-        autoClose: 1700,
+        autoClose: time,
         hideProgressBar: false,
         closeOnClick: true,
         pauseOnHover: true,
@@ -101,7 +101,7 @@ const Notifications = ({ children }) => {
     } else if (type === "warning" && theme === "colored") {
       return toast.warn(message, {
         position: location,
-        autoClose: 1700,
+        autoClose: time,
         hideProgressBar: false,
         closeOnClick: true,
         pauseOnHover: true,
@@ -114,7 +114,7 @@ const Notifications = ({ children }) => {
     if (type === "error" && theme === "light") {
       return toast.error(message, {
         position: location,
-        autoClose: 1700,
+        autoClose: time,
         hideProgressBar: false,
         closeOnClick: true,
         pauseOnHover: true,
@@ -125,7 +125,7 @@ const Notifications = ({ children }) => {
     } else if (type === "error" && theme === "dark") {
       return toast.error(message, {
         position: location,
-        autoClose: 1700,
+        autoClose: time,
         hideProgressBar: false,
         closeOnClick: true,
         pauseOnHover: true,
@@ -136,7 +136,7 @@ const Notifications = ({ children }) => {
     } else if (type === "error" && theme === "colored") {
       return toast.error(message, {
         position: location,
-        autoClose: 1700,
+        autoClose: time,
         hideProgressBar: false,
         closeOnClick: true,
         pauseOnHover: true,
@@ -149,7 +149,7 @@ const Notifications = ({ children }) => {
     if (type === "default" && theme === "light") {
       return toast(message, {
         position: location,
-        autoClose: 1700,
+        autoClose: time,
         hideProgressBar: false,
         closeOnClick: true,
         pauseOnHover: true,
@@ -160,7 +160,7 @@ const Notifications = ({ children }) => {
     } else if (type === "default" && theme === "dark") {
       return toast(message, {
         position: location,
-        autoClose: 1700,
+        autoClose: time,
         hideProgressBar: false,
         closeOnClick: true,
         pauseOnHover: true,
@@ -174,7 +174,6 @@ const Notifications = ({ children }) => {
   return (
     <>
       <ToastContainer
-        autoClose={1700}
         hideProgressBar={false}
         newestOnTop
         closeOnClick
