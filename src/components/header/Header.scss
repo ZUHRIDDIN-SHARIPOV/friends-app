@@ -134,7 +134,7 @@
   transition: 0.3s;
 }
 .site-header__menu-list {
-  max-width: 240px;
+  max-width: 50%;
   width: 100%;
   position: fixed;
   top: 0;
@@ -285,7 +285,6 @@
     }
   }
   .site-header__menu-list {
-    max-width: 195px;
     row-gap: 45px;
     transition: 0.1s;
   }
