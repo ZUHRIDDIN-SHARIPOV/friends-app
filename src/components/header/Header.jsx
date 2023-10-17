@@ -39,7 +39,7 @@ const Header = () => {
           <div className="site-header__block">
             <div className="site-header__logo">
               <FaTwitter />
-              <h2>My classmates</h2>
+              <h2>Friends App</h2>
             </div>
             <ul className="site-header__list">
               <li className="site-header__item" onClick={darkMode}>
@@ -76,7 +76,7 @@ const Header = () => {
             <ul className={`site-header__menu-list ${open ? "menu__key" : ""}`}>
               <li className="site-header__menu-item">
                 <FaTwitter />
-                <h2>My classmates</h2>
+                <h2>Friends App</h2>
               </li>
               {user && (
                 <li className="site-header__menu-item">

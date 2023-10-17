@@ -3,12 +3,12 @@ import firebase from "firebase/compat/app";
 import "firebase/compat/auth";
 
 export const app = firebase.initializeApp({
-  apiKey: "AIzaSyAV7QaAYyP0a9dj7AkQgnIzaTEo3_vxjik",
-  authDomain: "my-classmates-141d8.firebaseapp.com",
-  projectId: "my-classmates-141d8",
-  storageBucket: "my-classmates-141d8.appspot.com",
-  messagingSenderId: "886006151433",
-  appId: "1:886006151433:web:a1e0bd4290ec609c8a7bd8",
+  apiKey: "AIzaSyACx_lCwQyfqJHlu7ebvLwtup2hXTOGlCk",
+  authDomain: "friends-app-fe959.firebaseapp.com",
+  projectId: "friends-app-fe959",
+  storageBucket: "friends-app-fe959.appspot.com",
+  messagingSenderId: "816040172077",
+  appId: "1:816040172077:web:0f9e2ec862256b40d1b6a4",
 });
 
 export const auth = app.auth();
