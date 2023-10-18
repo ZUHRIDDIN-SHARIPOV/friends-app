@@ -45,52 +45,46 @@ const SignUp = () => {
         setLoading(false);
         dark
           ? notify(
+              "You have successfully registered",
               "bottom-left",
               "success",
-              "colored",
-              5000,
-              "You have successfully registered"
+              "colored"
             )
           : notify(
+              "You have successfully registered",
               "bottom-left",
               "success",
-              "light",
-              5000,
-              "You have successfully registered"
+              "light"
             );
       } catch (error) {
         setLoading(false);
         if (error.code === "auth/invalid-email") {
           dark
             ? notify(
+                "The email address was entered incorrectly",
                 "bottom-right",
                 "error",
-                "colored",
-                5000,
-                "The email address was entered incorrectly"
+                "colored"
               )
             : notify(
+                "The email address was entered incorrectly",
                 "bottom-right",
                 "error",
-                "light",
-                5000,
-                "The email address was entered incorrectly"
+                "light"
               );
         } else if (error.code === "auth/email-already-in-use") {
           dark
             ? notify(
+                "This account has already been created",
                 "bottom-right",
                 "error",
-                "colored",
-                5000,
-                "This account has already been created"
+                "colored"
               )
             : notify(
+                "This account has already been created",
                 "bottom-right",
                 "error",
-                "light",
-                5000,
-                "This account has already been created"
+                "light"
               );
         }
       }
@@ -132,12 +126,7 @@ const SignUp = () => {
       <main>
         <section className="signUp">
           <div className="container">
-            <div
-              className={`signUp-loader ${
-                loading ? "signUp-loader__key" : ""
-              }`}>
-              {loading && <Loader />}
-            </div>
+            {loading && <Loader loading={loading} />}
             <div className="signUp__block">
               <p className="signUp__text">Welcome back 👋</p>
               <h2 className="signUp__title">Create an account</h2>

@@ -5,7 +5,13 @@ import "react-toastify/dist/ReactToastify.css";
 export const notificationsContext = createContext();
 
 const Notifications = ({ children }) => {
-  const notify = (location, type, theme, time, message) => {
+  const notify = (
+    message,
+    location = "bottom-right",
+    type = "success",
+    theme = "dark",
+    time = 7000
+  ) => {
     if (type === "info" && theme === "light") {
       return toast.info(message, {
         position: location,

@@ -30,36 +30,32 @@ const ForgotPassword = () => {
         setLoading(false);
         dark
           ? notify(
+              "Message sent successfully",
               "bottom-right",
               "success",
-              "colored",
-              5000,
-              "Message sent successfully"
+              "colored"
             )
           : notify(
+              "Message sent successfully",
               "bottom-right",
               "success",
-              "dark",
-              5000,
-              "Message sent successfully"
+              "dark"
             );
       } catch (error) {
         setLoading(false);
         if (error.code === "auth/invalid-email") {
           dark
             ? notify(
+                "The email address was entered incorrectly",
                 "bottom-right",
                 "error",
-                "colored",
-                5000,
-                "The email address was entered incorrectly"
+                "colored"
               )
             : notify(
+                "The email address was entered incorrectly",
                 "bottom-right",
                 "error",
-                "light",
-                5000,
-                "The email address was entered incorrectly"
+                "light"
               );
         }
       }
@@ -71,10 +67,7 @@ const ForgotPassword = () => {
       <main>
         <section className="forgot-password">
           <div className="container">
-            <div
-              className={`reset-loader ${loading ? "reset-loader__key" : ""}`}>
-              {loading && <Loader />}
-            </div>
+            {loading && <Loader loading={loading} />}
             <div className="forgot-password__block">
               <h2 className="forgot-password__title">
                 Enter your email to reset your password

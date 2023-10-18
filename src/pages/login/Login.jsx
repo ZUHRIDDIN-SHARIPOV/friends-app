@@ -37,41 +37,51 @@ const Login = () => {
         await signInWithEmailAndPassword(auth, email, password);
         setLoading(false);
         dark
-          ? notify("bottom-right", "info", "dark", 5000, "Login successfully")
-          : notify("bottom-right", "info", "light", 5000, "Login successfully");
+          ? notify("Login successfully", "bottom-right", "info", "dark")
+          : notify("Login successfully", "bottom-right", "info", "light");
       } catch (error) {
         setLoading(false);
         if (error.code === "auth/invalid-login-credentials") {
           dark
             ? notify(
+                "User not found, check email and password, then try again",
                 "bottom-right",
                 "error",
-                "colored",
-                5000,
-                "User not found, check email and password, then try again"
+                "colored"
               )
             : notify(
+                "User not found, check email and password, then try again",
                 "bottom-right",
                 "error",
-                "light",
-                5000,
-                "User not found, check email and password, then try again"
+                "light"
               );
         } else if (error.code === "auth/user-disabled") {
           dark
             ? notify(
+                "The user account has been blocked by the administrator",
                 "bottom-right",
                 "error",
-                "colored",
-                5000,
-                "The user account has been blocked by the administrator"
+                "colored"
               )
             : notify(
+                "The user account has been blocked by the administrator",
                 "bottom-right",
                 "error",
-                "light",
-                5000,
-                "The user account has been blocked by the administrator"
+                "light"
+              );
+        } else if (error.code === "auth/too-many-requests") {
+          dark
+            ? notify(
+                "You have made too many requests, please try again later",
+                "bottom-right",
+                "error",
+                "colored"
+              )
+            : notify(
+                "You have made too many requests, please try again later",
+                "bottom-right",
+                "error",
+                "dark"
               );
         }
       }
@@ -107,10 +117,7 @@ const Login = () => {
       <main>
         <section className="login">
           <div className="container">
-            <div
-              className={`login-loader ${loading ? "login-loader__key" : ""}`}>
-              {loading && <Loader />}
-            </div>
+            {loading && <Loader loading={loading} />}
             <div className="login__block">
               <p className="login__text">Welcome back 👋</p>
               <h2 className="login__title">Login to your account</h2>

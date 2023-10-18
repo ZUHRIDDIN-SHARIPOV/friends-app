@@ -1,10 +1,12 @@
 import { memo } from "react";
 import "./Loader.scss";
 
-const Loader = () => {
+const Loader = ({ loading = true }) => {
   return (
     <>
-      <span className="loader"></span>
+      <div className={`loader__container ${loading ? "loader__key" : ""}`}>
+        <span className="loader"></span>
+      </div>
     </>
   );
 };
