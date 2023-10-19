@@ -147,7 +147,7 @@ const Login = () => {
                       type={showPassword ? "text" : "password"}
                       name="password"
                       autoComplete="off"
-                      placeholder="Enter password"
+                      placeholder="Enter the password"
                       value={formData.values.password}
                       onChange={formData.handleChange}
                       ref={passwordRef}

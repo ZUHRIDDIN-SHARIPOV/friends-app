@@ -128,7 +128,6 @@ const SignUp = () => {
           <div className="container">
             {loading && <Loader loading={loading} />}
             <div className="signUp__block">
-              <p className="signUp__text">Welcome back 👋</p>
               <h2 className="signUp__title">Create an account</h2>
               <form className="signUp__form" onSubmit={formData.handleSubmit}>
                 <div className="signUp__form-control">
@@ -138,7 +137,7 @@ const SignUp = () => {
                       type="email"
                       name="email"
                       autoComplete="off"
-                      placeholder="Please enter your email"
+                      placeholder="Enter your email"
                       value={formData.values.email}
                       onChange={formData.handleChange}
                       onKeyDown={(e) => handleEnterKeyPress(e, passwordRef)}
@@ -156,7 +155,7 @@ const SignUp = () => {
                       type={showPassword ? "text" : "password"}
                       name="password"
                       autoComplete="off"
-                      placeholder="Enter password"
+                      placeholder="Enter the password"
                       value={formData.values.password}
                       onChange={formData.handleChange}
                       onKeyDown={(e) => handleEnterKeyPress(e, cnfPasswordRef)}
@@ -179,7 +178,7 @@ const SignUp = () => {
                       type={showCnfPassword ? "text" : "password"}
                       name="confirmPassword"
                       autoComplete="off"
-                      placeholder="Confirm Password"
+                      placeholder="Enter the verification password"
                       value={formData.values.confirmPassword}
                       onChange={formData.handleChange}
                       ref={cnfPasswordRef}

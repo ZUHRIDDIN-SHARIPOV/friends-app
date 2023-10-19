@@ -4,7 +4,7 @@
   left: 0;
   right: 0;
   z-index: 1;
-  border-bottom: 1px solid #232536;
+  box-shadow: 0 7px 17px 0 rgba(0, 0, 0, 0.1);
   background: #fff;
   transition: 0.3s;
 }
@@ -134,7 +134,7 @@
   transition: 0.3s;
 }
 .site-header__menu-list {
-  max-width: 55%;
+  max-width: 53%;
   width: 100%;
   position: fixed;
   top: 0;
@@ -153,7 +153,6 @@
 }
 .menu__key {
   transform: translateX(0);
-  transition: 0.1s;
 }
 .site-header__menu-item:nth-child(1) {
   display: flex;
