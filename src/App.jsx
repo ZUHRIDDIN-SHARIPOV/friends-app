@@ -5,7 +5,7 @@ import Router from "./router/Router";
 export const darkModeContext = createContext();
 
 function App() {
-  const [dark, setDark] = useState(true);
+  const [dark, setDark] = useState(false);
   const darkMode = () => {
     setDark(!dark);
   };
