@@ -166,7 +166,7 @@
   transition: 0.1s;
 }
 .site-header__mobile-list {
-  max-width: 75%;
+  max-width: 77%;
   width: 100%;
   position: fixed;
   top: 0;
@@ -178,9 +178,7 @@
   align-items: center;
   row-gap: 55px;
   overflow-y: scroll;
-  padding: 0 20px;
-  padding-top: 25px;
-  padding-bottom: 30px;
+  padding: 25px 20px;
   background: #fff;
   transform: translateX(-101%);
   transition: 0.1s;
@@ -417,11 +415,6 @@
   .site-header__menu-logo svg {
     width: 26.7px;
     height: 26.7px;
-  }
-  .site-header__mobile-list {
-    padding: 0 15px;
-    padding-top: 25px;
-    padding-bottom: 30px;
   }
   .site-header__mobile-logo svg {
     width: 31.7px;
