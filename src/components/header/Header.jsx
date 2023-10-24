@@ -4,7 +4,10 @@ import { FaTwitter } from "react-icons/fa";
 import { TbMenu2 } from "react-icons/tb";
 import { BsLightningChargeFill, BsLightningCharge } from "react-icons/bs";
 import { VscChromeClose } from "react-icons/vsc";
-import { NavLink } from "react-router-dom";
+import { IoSettingsSharp, IoSettingsOutline } from "react-icons/io5";
+import { PiArrowBendDoubleUpRightThin } from "react-icons/pi";
+import { CiLogout } from "react-icons/ci";
+import { NavLink, useNavigate } from "react-router-dom";
 import { auth } from "../../auth/firebase";
 import { signOut } from "firebase/auth";
 import { useAuthUser } from "../../auth/AuthUser";
@@ -15,6 +18,7 @@ const Header = () => {
   const { user } = useAuthUser();
   const { dark, darkMode } = useDarkMode();
   const { notify } = useNotifications();
+  const navigate = useNavigate();
 
   const [open, setOpen] = useState(false);
   const menuMode = () => {
@@ -32,6 +36,14 @@ const Header = () => {
     }
   };
 
+  const clickPortfolioBtn = () => {
+    return user
+      ? navigate("/projects")
+      : !dark
+      ? notify("You are not logged in", "bottom-right", "error")
+      : notify("You are not logged in", "bottom-right", "error", "colored");
+  };
+
   return (
     <>
       <header className="site-header">
@@ -45,60 +57,51 @@ const Header = () => {
               <li className="site-header__item" onClick={darkMode}>
                 {dark ? <BsLightningCharge /> : <BsLightningChargeFill />}
               </li>
+
               {user && (
                 <li className="site-header__item">
                   <NavLink to={"/home"}>Home</NavLink>
                 </li>
               )}
-              {user && (
-                <li className="site-header__item">
-                  <NavLink to={"/support"}>Support</NavLink>
-                </li>
-              )}
-              {!user && (
-                <li className="site-header__item">
-                  <NavLink to={"/"}>Login</NavLink>
-                </li>
-              )}
-              {!user ? (
-                <li className="site-header__item">
-                  <NavLink to={"/signUp"}>Sign Up</NavLink>
-                </li>
-              ) : (
-                <li className="site-header__item">
-                  <div className="sign-out" onClick={userSignOut}>
-                    <input type="checkbox" />
-                    <label></label>
-                  </div>
-                </li>
-              )}
-            </ul>
-            <ul className={`site-header__menu-list ${open ? "menu__key" : ""}`}>
-              <li className="site-header__menu-item">
-                <FaTwitter />
-                <h2>Friends App</h2>
+
+              <li className="site-header__item">
+                <NavLink to={"/portfolio"} onClick={clickPortfolioBtn}>
+                  Portfolio
+                </NavLink>
               </li>
+
+              <li className="site-header__item">
+                <button>Contacts</button>
+              </li>
+
               {user && (
-                <li className="site-header__menu-item">
-                  <NavLink to={"/home"}>Home</NavLink>
+                <li className="site-header__item">
+                  <button>More</button>
                 </li>
               )}
+
               {user && (
-                <li className="site-header__menu-item">
-                  <NavLink to={"/support"}>Support</NavLink>
+                <li
+                  className="site-header__item"
+                  onClick={() => navigate("/settings")}>
+                  {dark ? <IoSettingsOutline /> : <IoSettingsSharp />}
                 </li>
               )}
+
               {!user && (
-                <li className="site-header__menu-item">
+                <li className="site-header__item">
                   <NavLink to={"/"}>Login</NavLink>
                 </li>
               )}
-              {!user ? (
-                <li className="site-header__menu-item">
+
+              {!user && (
+                <li className="site-header__item">
                   <NavLink to={"/signUp"}>Sign Up</NavLink>
                 </li>
-              ) : (
-                <li className="site-header__menu-item">
+              )}
+
+              {user && (
+                <li className="site-header__item">
                   <div className="sign-out" onClick={userSignOut}>
                     <input type="checkbox" />
                     <label></label>
@@ -106,6 +109,104 @@ const Header = () => {
                 </li>
               )}
             </ul>
+
+            <div
+              className={`site-header__mobile ${
+                open ? "site-header__mobile-key" : ""
+              }`}
+              onClick={menuMode}></div>
+
+            <ul className="site-header__mobile-list">
+              <li className="site-header__mobile-item">
+                <div className="site-header__mobile-logo">
+                  <FaTwitter />
+                  <h2>Friends App</h2>
+                </div>
+                <div
+                  className="site-header__mobile-darkmode"
+                  onClick={darkMode}>
+                  {dark ? <BsLightningCharge /> : <BsLightningChargeFill />}
+                </div>
+              </li>
+
+              {user && (
+                <li className="site-header__mobile-item">
+                  <NavLink to={"/home"}>Home</NavLink>
+                  <div className="site-header__mobile-logo">
+                    <PiArrowBendDoubleUpRightThin />
+                  </div>
+                </li>
+              )}
+
+              <li className="site-header__mobile-item">
+                <NavLink to={"/portfolio"} onClick={clickPortfolioBtn}>
+                  Portfolio
+                </NavLink>
+                <div className="site-header__mobile-logo">
+                  <PiArrowBendDoubleUpRightThin />
+                </div>
+              </li>
+
+              <li className="site-header__mobile-item">
+                <button>Contacts</button>
+                <div className="site-header__mobile-logo">
+                  <PiArrowBendDoubleUpRightThin />
+                </div>
+              </li>
+
+              {user && (
+                <li className="site-header__mobile-item">
+                  <button>More</button>
+                  <div className="site-header__mobile-logo">
+                    <PiArrowBendDoubleUpRightThin />
+                  </div>
+                </li>
+              )}
+
+              {user && (
+                <li className="site-header__mobile-item">
+                  <div className="site-header__mobile-item-settings">
+                    {dark ? <IoSettingsOutline /> : <IoSettingsSharp />}
+                    <p>Settings</p>
+                  </div>
+                  <div className="site-header__mobile-logo">
+                    <PiArrowBendDoubleUpRightThin />
+                  </div>
+                </li>
+              )}
+
+              {!user && (
+                <li className="site-header__mobile-item">
+                  <NavLink to={"/"}>Login</NavLink>
+                  <div className="site-header__mobile-logo">
+                    <PiArrowBendDoubleUpRightThin />
+                  </div>
+                </li>
+              )}
+
+              {!user && (
+                <li className="site-header__mobile-item">
+                  <NavLink to={"/signUp"}>Sign Up</NavLink>
+                  <div className="site-header__mobile-logo">
+                    <PiArrowBendDoubleUpRightThin />
+                  </div>
+                </li>
+              )}
+
+              {user && (
+                <li className="site-header__mobile-item">
+                  <div className="sign-out__icon">
+                    <CiLogout />
+                    <p>Sign out</p>
+                  </div>
+                  <div className="sign-out" onClick={userSignOut}>
+                    <input type="checkbox" />
+                    <label></label>
+                  </div>
+                </li>
+              )}
+            </ul>
+
             <div className="site-header__menu-logo" onClick={menuMode}>
               {open ? <VscChromeClose /> : <TbMenu2 />}
             </div>

@@ -5,9 +5,10 @@ import {
   Error404,
   Home,
   Login,
+  Portfolio,
   ForgotPassword,
+  Settings,
   SignUp,
-  Support,
 } from "../pages/re-export";
 import { useAuthUser } from "../auth/AuthUser";
 
@@ -17,27 +18,71 @@ const Router = () => {
   return (
     <>
       <BrowserRouter>
-        <Header />
         <Routes>
           <Route
             path="/"
-            element={!user ? <Login /> : <Navigate to={"/home"} />}
+            element={
+              <>
+                <Header />
+                {!user ? <Login /> : <Navigate to={"/home"} />}
+              </>
+            }
           />
           <Route
             path="/signUp"
-            element={!user ? <SignUp /> : <Navigate to={"/home"} />}
+            element={
+              <>
+                <Header />
+                {!user ? <SignUp /> : <Navigate to={"/error"} />}
+              </>
+            }
           />
           <Route
             path="/home"
-            element={user ? <Home /> : <Navigate to={"/"} />}
+            element={
+              <>
+                <Header />
+                {user ? <Home /> : <Navigate to={"/"} />}
+              </>
+            }
           />
           <Route
-            path="/support"
-            element={user ? <Support /> : <Navigate to={"/"} />}
+            path="/portfolio"
+            element={
+              <>
+                <Header />
+                {user ? <Portfolio /> : <Navigate to={"/"} />}
+              </>
+            }
           />
-          <Route path="/reset" element={<ForgotPassword />} />
+          <Route
+            path="/settings"
+            element={
+              <>
+                <Header />
+                {user ? <Settings /> : <Navigate to={"/"} />}
+              </>
+            }
+          />
+          <Route
+            path="/reset"
+            element={
+              <>
+                <Header />
+                {!user ? <ForgotPassword /> : <Navigate to={"/error"} />}
+              </>
+            }
+          />
           <Route path="*" element={<Navigate to="/error" />} />
-          <Route path="/error" element={<Error404 />} />
+          <Route
+            path="/error"
+            element={
+              <>
+                <Header />
+                <Error404 />
+              </>
+            }
+          />
         </Routes>
       </BrowserRouter>
     </>

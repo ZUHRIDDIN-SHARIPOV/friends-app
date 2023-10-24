@@ -3,72 +3,83 @@
     background: #000;
     transition: 0.2s;
   }
-  .site-header__logo {
-    h2,
-    svg {
-      color: #fff;
-      transition: 0.1s;
-    }
-    &:hover {
-      svg {
-        color: blueviolet;
-      }
-      h2 {
-        color: blueviolet;
-      }
-      transition: 0.3s;
-    }
+  .site-header__logo svg {
+    color: #fff;
+    transition: 0.1s;
   }
-  .site-header__item {
-    a {
-      color: #fff;
-      transition: 0.1s;
-      &:hover {
-        color: blueviolet;
-      }
-    }
+  .site-header__logo h2 {
+    color: #fff;
+    transition: 0.1s;
   }
   .site-header__item:nth-child(1) svg {
     color: #fff;
     transition: 0.1s;
-    &:hover {
-      color: blueviolet;
-      transition: 0.3s;
-    }
+  }
+  .site-header__item:nth-child(6) svg {
+    color: #fff;
+    transition: 0.1s;
+  }
+  .site-header__item a {
+    color: #fff;
+    transition: 0.1s;
+  }
+  .site-header__item button {
+    background: #000;
+    color: #fff;
+    transition: 0.1s;
+  }
+  .site-header__item button:hover {
+    border-color: #fff;
+    transition: 0.1s;
   }
   .site-header__menu-logo svg {
     color: #fff;
     transition: 0.1s;
   }
-  .site-header__menu-list {
-    background: #000;
+  .site-header__mobile-list {
+    background: #232536;
     transition: 0.1s;
   }
-  .site-header__menu-item:nth-child(1) {
-    svg {
-      color: #fff;
-    }
-    h2 {
-      color: #fff;
-    }
-    &:hover {
-      svg {
-        color: blueviolet;
-      }
-      h2 {
-        color: blueviolet;
-      }
-    }
-    transition: 0.3s;
+  .site-header__mobile-logo svg {
+    color: #fff;
+    transition: 0.1s;
   }
-  .site-header__menu-item {
-    a {
-      color: #fff;
-      transition: 0.3s;
-      &:hover {
-        color: blueviolet;
-      }
-    }
+  .site-header__mobile-logo h2 {
+    color: #fff;
+    transition: 0.1s;
+  }
+  .site-header__mobile-darkmode svg {
+    color: #fff;
+    transition: 0.1s;
+  }
+  .site-header__mobile-item a {
+    color: #fff;
+    transition: 0.1s;
+  }
+  .site-header__mobile-item button {
+    background: #232536;
+    color: #fff;
+    transition: 0.1s;
+  }
+  .site-header__mobile-item button:hover {
+    border-color: #fff;
+    transition: 0.1s;
+  }
+  .site-header__mobile-item-settings svg {
+    color: #fff;
+    transition: 0.1s;
+  }
+  .site-header__mobile-item-settings p {
+    color: #fff;
+    transition: 0.1s;
+  }
+  .sign-out__icon svg {
+    color: #fff;
+    transition: 0.1s;
+  }
+  .sign-out__icon p {
+    color: #fff;
+    transition: 0.1s;
   }
   .login {
     background: #000;
@@ -80,7 +91,7 @@
       transition: 0.1s;
     }
     .login__title {
-      color: blue;
+      color: #00f;
       transition: 0.1s;
     }
   }
@@ -98,7 +109,6 @@
       }
     }
   }
-
   .signUp {
     background: #000;
     transition: 0.1s;
@@ -109,7 +119,7 @@
       transition: 0.1s;
     }
     .signUp__title {
-      color: blueviolet;
+      color: #8a2be2;
       transition: 0.1s;
     }
   }
