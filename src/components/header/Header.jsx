@@ -6,7 +6,11 @@ import { BsLightningChargeFill, BsLightningCharge } from "react-icons/bs";
 import { VscChromeClose } from "react-icons/vsc";
 import { IoSettingsOutline } from "react-icons/io5";
 import { LiaHomeSolid } from "react-icons/lia";
-import { PiFolderOpenLight, PiPhoneLight,PiArrowBendDoubleUpRightLight } from "react-icons/pi";
+import {
+  PiFolderOpenLight,
+  PiPhoneLight,
+  PiArrowBendDoubleUpRightLight,
+} from "react-icons/pi";
 import { FiMoreVertical, FiUserCheck } from "react-icons/fi";
 import { CiLogout, CiLogin } from "react-icons/ci";
 import { NavLink, useNavigate } from "react-router-dom";
@@ -147,7 +151,9 @@ const Header = () => {
                     <LiaHomeSolid />
                     <p>Home</p>
                   </div>
-                  <div className="site-header__mobile-right-logo">
+                  <div
+                    className="site-header__mobile-right-logo"
+                    onClick={() => public_route("/home")}>
                     <PiArrowBendDoubleUpRightLight />
                   </div>
                 </li>
@@ -160,7 +166,9 @@ const Header = () => {
                   <PiFolderOpenLight />
                   <p>Portfolio</p>
                 </div>
-                <div className="site-header__mobile-right-logo">
+                <div
+                  className="site-header__mobile-right-logo"
+                  onClick={private_route}>
                   <PiArrowBendDoubleUpRightLight />
                 </div>
               </li>
@@ -195,7 +203,9 @@ const Header = () => {
                     <IoSettingsOutline />
                     <p>Settings</p>
                   </div>
-                  <div className="site-header__mobile-right-logo">
+                  <div
+                    className="site-header__mobile-right-logo"
+                    onClick={() => public_route("/settings")}>
                     <PiArrowBendDoubleUpRightLight />
                   </div>
                 </li>
@@ -209,7 +219,9 @@ const Header = () => {
                     <CiLogin />
                     <p>Login</p>
                   </div>
-                  <div className="site-header__mobile-right-logo">
+                  <div
+                    className="site-header__mobile-right-logo"
+                    onClick={() => public_route("/")}>
                     <PiArrowBendDoubleUpRightLight />
                   </div>
                 </li>
@@ -223,7 +235,9 @@ const Header = () => {
                     <FiUserCheck />
                     <p>Sign Up</p>
                   </div>
-                  <div className="site-header__mobile-right-logo">
+                  <div
+                    className="site-header__mobile-right-logo"
+                    onClick={() => public_route("/signUp")}>
                     <PiArrowBendDoubleUpRightLight />
                   </div>
                 </li>
