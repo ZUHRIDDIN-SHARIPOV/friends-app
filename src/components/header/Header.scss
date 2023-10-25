@@ -257,8 +257,8 @@
   color: #8a2be2;
 }
 .site-header__mobile-right-logo svg {
-  width: 29px;
-  height: 29px;
+  width: 33px;
+  height: 33px;
   flex-shrink: 0;
   transition: 0.3s;
 }
@@ -380,6 +380,10 @@
   .site-header__mobile-item-left-content svg {
     width: 26px;
     height: 26px;
+  }
+  .site-header__mobile-right-logo svg {
+    width: 30px;
+    height: 30px;
   }
 }
 @media only screen and (max-width: 341px) {

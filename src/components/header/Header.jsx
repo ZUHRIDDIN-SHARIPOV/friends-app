@@ -5,9 +5,8 @@ import { TbMenu2 } from "react-icons/tb";
 import { BsLightningChargeFill, BsLightningCharge } from "react-icons/bs";
 import { VscChromeClose } from "react-icons/vsc";
 import { IoSettingsOutline } from "react-icons/io5";
-import { GrReactjs } from "react-icons/gr";
 import { LiaHomeSolid } from "react-icons/lia";
-import { PiFolderOpenLight, PiPhoneLight } from "react-icons/pi";
+import { PiFolderOpenLight, PiPhoneLight,PiArrowBendDoubleUpRightLight } from "react-icons/pi";
 import { FiMoreVertical, FiUserCheck } from "react-icons/fi";
 import { CiLogout, CiLogin } from "react-icons/ci";
 import { NavLink, useNavigate } from "react-router-dom";
@@ -149,7 +148,7 @@ const Header = () => {
                     <p>Home</p>
                   </div>
                   <div className="site-header__mobile-right-logo">
-                    <GrReactjs />
+                    <PiArrowBendDoubleUpRightLight />
                   </div>
                 </li>
               )}
@@ -162,7 +161,7 @@ const Header = () => {
                   <p>Portfolio</p>
                 </div>
                 <div className="site-header__mobile-right-logo">
-                  <GrReactjs />
+                  <PiArrowBendDoubleUpRightLight />
                 </div>
               </li>
 
@@ -172,7 +171,7 @@ const Header = () => {
                   <p>Contact Us</p>
                 </div>
                 <div className="site-header__mobile-right-logo">
-                  <GrReactjs />
+                  <PiArrowBendDoubleUpRightLight />
                 </div>
               </li>
 
@@ -183,7 +182,7 @@ const Header = () => {
                     <p>More</p>
                   </div>
                   <div className="site-header__mobile-right-logo">
-                    <GrReactjs />
+                    <PiArrowBendDoubleUpRightLight />
                   </div>
                 </li>
               )}
@@ -197,7 +196,7 @@ const Header = () => {
                     <p>Settings</p>
                   </div>
                   <div className="site-header__mobile-right-logo">
-                    <GrReactjs />
+                    <PiArrowBendDoubleUpRightLight />
                   </div>
                 </li>
               )}
@@ -211,7 +210,7 @@ const Header = () => {
                     <p>Login</p>
                   </div>
                   <div className="site-header__mobile-right-logo">
-                    <GrReactjs />
+                    <PiArrowBendDoubleUpRightLight />
                   </div>
                 </li>
               )}
@@ -225,7 +224,7 @@ const Header = () => {
                     <p>Sign Up</p>
                   </div>
                   <div className="site-header__mobile-right-logo">
-                    <GrReactjs />
+                    <PiArrowBendDoubleUpRightLight />
                   </div>
                 </li>
               )}
