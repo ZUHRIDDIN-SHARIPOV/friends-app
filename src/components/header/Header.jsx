@@ -4,9 +4,12 @@ import { FaTwitter } from "react-icons/fa";
 import { TbMenu2 } from "react-icons/tb";
 import { BsLightningChargeFill, BsLightningCharge } from "react-icons/bs";
 import { VscChromeClose } from "react-icons/vsc";
-import { IoSettingsSharp, IoSettingsOutline } from "react-icons/io5";
-import { PiArrowBendDoubleUpRightThin } from "react-icons/pi";
-import { CiLogout } from "react-icons/ci";
+import { IoSettingsOutline } from "react-icons/io5";
+import { GrReactjs } from "react-icons/gr";
+import { LiaHomeSolid } from "react-icons/lia";
+import { PiFolderOpenLight, PiPhoneLight } from "react-icons/pi";
+import { FiMoreVertical, FiUserCheck } from "react-icons/fi";
+import { CiLogout, CiLogin } from "react-icons/ci";
 import { NavLink, useNavigate } from "react-router-dom";
 import { auth } from "../../auth/firebase";
 import { signOut } from "firebase/auth";
@@ -36,12 +39,20 @@ const Header = () => {
     }
   };
 
-  const clickPortfolioBtn = () => {
-    return user
-      ? navigate("/projects")
-      : !dark
-      ? notify("You are not logged in", "bottom-right", "error")
-      : notify("You are not logged in", "bottom-right", "error", "colored");
+  const private_route = () => {
+    if (user) {
+      navigate("/portfolio");
+      menuMode();
+    } else {
+      dark
+        ? notify("You are not logged in", "bottom-right", "error", "colored")
+        : notify("You are not logged in", "bottom-right", "error");
+    }
+  };
+
+  const public_route = (path) => {
+    navigate(path);
+    menuMode();
   };
 
   return (
@@ -65,7 +76,7 @@ const Header = () => {
               )}
 
               <li className="site-header__item">
-                <NavLink to={"/portfolio"} onClick={clickPortfolioBtn}>
+                <NavLink to={"/portfolio"} onClick={private_route}>
                   Portfolio
                 </NavLink>
               </li>
@@ -84,7 +95,7 @@ const Header = () => {
                 <li
                   className="site-header__item"
                   onClick={() => navigate("/settings")}>
-                  {dark ? <IoSettingsOutline /> : <IoSettingsSharp />}
+                  <IoSettingsOutline />
                 </li>
               )}
 
@@ -131,73 +142,99 @@ const Header = () => {
 
               {user && (
                 <li className="site-header__mobile-item">
-                  <NavLink to={"/home"}>Home</NavLink>
+                  <div
+                    className="site-header__mobile-item-left-content site-header__mobile-item-left-mark"
+                    onClick={() => public_route("/home")}>
+                    <LiaHomeSolid />
+                    <p>Home</p>
+                  </div>
                   <div className="site-header__mobile-right-logo">
-                    <PiArrowBendDoubleUpRightThin />
+                    <GrReactjs />
                   </div>
                 </li>
               )}
 
               <li className="site-header__mobile-item">
-                <NavLink to={"/portfolio"} onClick={clickPortfolioBtn}>
-                  Portfolio
-                </NavLink>
+                <div
+                  className="site-header__mobile-item-left-content site-header__mobile-item-left-mark "
+                  onClick={private_route}>
+                  <PiFolderOpenLight />
+                  <p>Portfolio</p>
+                </div>
                 <div className="site-header__mobile-right-logo">
-                  <PiArrowBendDoubleUpRightThin />
+                  <GrReactjs />
                 </div>
               </li>
 
               <li className="site-header__mobile-item">
-                <button>Contacts</button>
+                <div className="site-header__mobile-item-left-content">
+                  <PiPhoneLight />
+                  <p>Contact Us</p>
+                </div>
                 <div className="site-header__mobile-right-logo">
-                  <PiArrowBendDoubleUpRightThin />
+                  <GrReactjs />
                 </div>
               </li>
 
               {user && (
                 <li className="site-header__mobile-item">
-                  <button>More</button>
+                  <div className="site-header__mobile-item-left-content site-header__mobile-item-left-mark">
+                    <FiMoreVertical />
+                    <p>More</p>
+                  </div>
                   <div className="site-header__mobile-right-logo">
-                    <PiArrowBendDoubleUpRightThin />
+                    <GrReactjs />
                   </div>
                 </li>
               )}
 
               {user && (
                 <li className="site-header__mobile-item">
-                  <div className="site-header__mobile-item-settings">
-                    {dark ? <IoSettingsOutline /> : <IoSettingsSharp />}
+                  <div
+                    className="site-header__mobile-item-left-content"
+                    onClick={() => public_route("/settings")}>
+                    <IoSettingsOutline />
                     <p>Settings</p>
                   </div>
                   <div className="site-header__mobile-right-logo">
-                    <PiArrowBendDoubleUpRightThin />
+                    <GrReactjs />
                   </div>
                 </li>
               )}
 
               {!user && (
                 <li className="site-header__mobile-item">
-                  <NavLink to={"/"}>Login</NavLink>
+                  <div
+                    className="site-header__mobile-item-left-content"
+                    onClick={() => public_route("/")}>
+                    <CiLogin />
+                    <p>Login</p>
+                  </div>
                   <div className="site-header__mobile-right-logo">
-                    <PiArrowBendDoubleUpRightThin />
+                    <GrReactjs />
                   </div>
                 </li>
               )}
 
               {!user && (
                 <li className="site-header__mobile-item">
-                  <NavLink to={"/signUp"}>Sign Up</NavLink>
+                  <div
+                    className="site-header__mobile-item-left-content"
+                    onClick={() => public_route("/signUp")}>
+                    <FiUserCheck />
+                    <p>Sign Up</p>
+                  </div>
                   <div className="site-header__mobile-right-logo">
-                    <PiArrowBendDoubleUpRightThin />
+                    <GrReactjs />
                   </div>
                 </li>
               )}
 
               {user && (
                 <li className="site-header__mobile-item">
-                  <div className="sign-out__icon">
+                  <div className="site-header__mobile-item-left-content">
                     <CiLogout />
-                    <p>Sign out</p>
+                    <p>Sign Out</p>
                   </div>
                   <div className="sign-out" onClick={userSignOut}>
                     <input type="checkbox" />
