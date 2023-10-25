@@ -132,7 +132,7 @@ const Header = () => {
               {user && (
                 <li className="site-header__mobile-item">
                   <NavLink to={"/home"}>Home</NavLink>
-                  <div className="site-header__mobile-logo">
+                  <div className="site-header__mobile-right-logo">
                     <PiArrowBendDoubleUpRightThin />
                   </div>
                 </li>
@@ -142,14 +142,14 @@ const Header = () => {
                 <NavLink to={"/portfolio"} onClick={clickPortfolioBtn}>
                   Portfolio
                 </NavLink>
-                <div className="site-header__mobile-logo">
+                <div className="site-header__mobile-right-logo">
                   <PiArrowBendDoubleUpRightThin />
                 </div>
               </li>
 
               <li className="site-header__mobile-item">
                 <button>Contacts</button>
-                <div className="site-header__mobile-logo">
+                <div className="site-header__mobile-right-logo">
                   <PiArrowBendDoubleUpRightThin />
                 </div>
               </li>
@@ -157,7 +157,7 @@ const Header = () => {
               {user && (
                 <li className="site-header__mobile-item">
                   <button>More</button>
-                  <div className="site-header__mobile-logo">
+                  <div className="site-header__mobile-right-logo">
                     <PiArrowBendDoubleUpRightThin />
                   </div>
                 </li>
@@ -169,7 +169,7 @@ const Header = () => {
                     {dark ? <IoSettingsOutline /> : <IoSettingsSharp />}
                     <p>Settings</p>
                   </div>
-                  <div className="site-header__mobile-logo">
+                  <div className="site-header__mobile-right-logo">
                     <PiArrowBendDoubleUpRightThin />
                   </div>
                 </li>
@@ -178,7 +178,7 @@ const Header = () => {
               {!user && (
                 <li className="site-header__mobile-item">
                   <NavLink to={"/"}>Login</NavLink>
-                  <div className="site-header__mobile-logo">
+                  <div className="site-header__mobile-right-logo">
                     <PiArrowBendDoubleUpRightThin />
                   </div>
                 </li>
@@ -187,7 +187,7 @@ const Header = () => {
               {!user && (
                 <li className="site-header__mobile-item">
                   <NavLink to={"/signUp"}>Sign Up</NavLink>
-                  <div className="site-header__mobile-logo">
+                  <div className="site-header__mobile-right-logo">
                     <PiArrowBendDoubleUpRightThin />
                   </div>
                 </li>

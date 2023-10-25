@@ -26,7 +26,6 @@
   font-weight: 500;
   transition: 0.3s;
 }
-
 .site-header__logo:hover svg {
   color: #8a2be2;
 }
@@ -47,10 +46,12 @@
   justify-content: space-between;
   column-gap: 70px;
 }
+.site-header__item {
+  cursor: pointer;
+}
 .site-header__item:nth-child(1) svg {
   width: 27px;
   height: 27px;
-  cursor: pointer;
   transition: 0.3s;
 }
 .site-header__item:nth-child(1):hover svg {
@@ -59,7 +60,6 @@
 .site-header__item:nth-child(6) svg {
   width: 27px;
   height: 27px;
-  cursor: pointer;
 }
 .site-header__item:nth-child(6):hover svg {
   color: #8a2be2;
@@ -189,6 +189,13 @@
 .site-header__mobile-key + .site-header__mobile-list {
   transform: translateX(0);
 }
+.site-header__mobile-item {
+  max-width: 100%;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
 .site-header__mobile-item:first-child {
   max-width: 100%;
   width: 100%;
@@ -200,6 +207,7 @@
   display: flex;
   align-items: center;
   column-gap: 7px;
+  cursor: pointer;
 }
 .site-header__mobile-logo svg {
   width: 33px;
@@ -227,13 +235,6 @@
 }
 .site-header__mobile-darkmode:hover svg {
   color: #8a2be2;
-}
-.site-header__mobile-item {
-  max-width: 100%;
-  width: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
 }
 .site-header__mobile-item a {
   font-family: Poppins;
@@ -271,11 +272,11 @@
   display: flex;
   align-items: center;
   column-gap: 7px;
+  cursor: pointer;
 }
 .site-header__mobile-item-settings svg {
   width: 27px;
   height: 27px;
-  cursor: pointer;
   transition: 0.3s;
 }
 .site-header__mobile-item-settings:hover svg {
@@ -295,11 +296,11 @@
   display: flex;
   align-items: center;
   column-gap: 7px;
+  cursor: pointer;
 }
 .sign-out__icon svg {
   width: 27px;
   height: 27px;
-  cursor: pointer;
   transition: 0.3s;
 }
 .sign-out__icon p {
@@ -313,6 +314,15 @@
   color: #8a2be2;
 }
 .sign-out__icon:hover p {
+  color: #8a2be2;
+}
+.site-header__mobile-right-logo svg {
+  width: 33px;
+  height: 33px;
+  flex-shrink: 0;
+  transition: 0.3s;
+}
+.site-header__mobile-right-logo:hover svg {
   color: #8a2be2;
 }
 
@@ -446,6 +456,10 @@
   }
   .sign-out__icon p {
     font-size: 16px;
+  }
+  .site-header__mobile-right-logo svg {
+    width: 31.7px;
+    height: 31.7px;
   }
 }
 @media only screen and (max-width: 341px) {
