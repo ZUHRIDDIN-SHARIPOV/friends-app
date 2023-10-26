@@ -82,9 +82,7 @@ const Header = () => {
               )}
 
               <li className="site-header__item">
-                <NavLink to={"/portfolio"} onClick={private_route}>
-                  Portfolio
-                </NavLink>
+                <NavLink to={"/portfolio"}>Portfolio</NavLink>
               </li>
 
               <li className="site-header__item">
