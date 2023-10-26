@@ -12,7 +12,7 @@ import {
   PiPhoneLight,
   PiArrowBendDoubleUpRightLight,
   FiMoreVertical,
-  FiUserCheck,
+  HiOutlineUserPlus,
   CiLogout,
   GoSignIn,
 } from "../../assets/re-export";
@@ -98,7 +98,7 @@ const Header = () => {
               </li>
 
               <li className="site-header__item">
-                <button>Contacts</button>
+                <button>Contact me</button>
               </li>
 
               {user && (
@@ -123,7 +123,7 @@ const Header = () => {
 
               {!user && (
                 <li className="site-header__item">
-                  <NavLink to={"/signUp"}>Sign Up</NavLink>
+                  <NavLink to={"/signUp"}>Sign up</NavLink>
                 </li>
               )}
 
@@ -189,7 +189,7 @@ const Header = () => {
               <li className="site-header__mobile-item">
                 <div className="site-header__mobile-item-left-content">
                   <PiPhoneLight />
-                  <p>Contact Us</p>
+                  <p>Contact me</p>
                 </div>
                 <div className="site-header__mobile-right-logo">
                   <PiArrowBendDoubleUpRightLight />
@@ -245,8 +245,8 @@ const Header = () => {
                   <div
                     className="site-header__mobile-item-left-content"
                     onClick={() => mobile_route("/signUp")}>
-                    <FiUserCheck />
-                    <p>Sign Up</p>
+                    <HiOutlineUserPlus />
+                    <p>Sign up</p>
                   </div>
                   <div
                     className="site-header__mobile-right-logo"
@@ -260,7 +260,7 @@ const Header = () => {
                 <li className="site-header__mobile-item">
                   <div className="site-header__mobile-item-left-content">
                     <CiLogout />
-                    <p>Sign Out</p>
+                    <p>Sign out</p>
                   </div>
                   <div className="sign-out" onClick={userSignOut}>
                     <input type="checkbox" />

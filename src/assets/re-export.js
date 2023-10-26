@@ -9,7 +9,7 @@ import { PiFolderOpenLight } from "react-icons/pi";
 import { PiPhoneLight } from "react-icons/pi";
 import { PiArrowBendDoubleUpRightLight } from "react-icons/pi";
 import { FiMoreVertical } from "react-icons/fi";
-import { FiUserCheck } from "react-icons/fi";
+import { HiOutlineUserPlus } from "react-icons/hi2";
 import { CiLogout } from "react-icons/ci";
 import { GoSignIn } from "react-icons/go";
 import { BsEyeSlash } from "react-icons/bs";
@@ -26,7 +26,7 @@ export {
   PiPhoneLight,
   PiArrowBendDoubleUpRightLight,
   FiMoreVertical,
-  FiUserCheck,
+  HiOutlineUserPlus,
   CiLogout,
   GoSignIn,
   BsEyeSlash,
