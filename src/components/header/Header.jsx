@@ -45,7 +45,17 @@ const Header = () => {
     }
   };
 
-  const private_route = () => {
+  const private_portfolio_desktop = () => {
+    if (user) {
+      navigate("/portfolio");
+    } else {
+      dark
+        ? notify("You are not logged in", "bottom-right", "error", "colored")
+        : notify("You are not logged in", "bottom-right", "error");
+    }
+  };
+
+  const private_portfolio_mobile = () => {
     if (user) {
       navigate("/portfolio");
       menuMode();
@@ -56,7 +66,7 @@ const Header = () => {
     }
   };
 
-  const public_route = (path) => {
+  const mobile_route = (path) => {
     navigate(path);
     menuMode();
   };
@@ -81,7 +91,9 @@ const Header = () => {
                 </li>
               )}
 
-              <li className="site-header__item">
+              <li
+                className="site-header__item"
+                onClick={private_portfolio_desktop}>
                 <NavLink to={"/portfolio"}>Portfolio</NavLink>
               </li>
 
@@ -148,13 +160,13 @@ const Header = () => {
                 <li className="site-header__mobile-item">
                   <div
                     className="site-header__mobile-item-left-content site-header__mobile-item-left-mark"
-                    onClick={() => public_route("/home")}>
+                    onClick={() => mobile_route("/home")}>
                     <LiaHomeSolid />
                     <p>Home</p>
                   </div>
                   <div
                     className="site-header__mobile-right-logo"
-                    onClick={() => public_route("/home")}>
+                    onClick={() => mobile_route("/home")}>
                     <PiArrowBendDoubleUpRightLight />
                   </div>
                 </li>
@@ -163,13 +175,13 @@ const Header = () => {
               <li className="site-header__mobile-item">
                 <div
                   className="site-header__mobile-item-left-content site-header__mobile-item-left-mark "
-                  onClick={private_route}>
+                  onClick={private_portfolio_mobile}>
                   <PiFolderOpenLight />
                   <p>Portfolio</p>
                 </div>
                 <div
                   className="site-header__mobile-right-logo"
-                  onClick={private_route}>
+                  onClick={private_portfolio_mobile}>
                   <PiArrowBendDoubleUpRightLight />
                 </div>
               </li>
@@ -200,13 +212,13 @@ const Header = () => {
                 <li className="site-header__mobile-item">
                   <div
                     className="site-header__mobile-item-left-content"
-                    onClick={() => public_route("/settings")}>
+                    onClick={() => mobile_route("/settings")}>
                     <IoSettingsOutline />
                     <p>Settings</p>
                   </div>
                   <div
                     className="site-header__mobile-right-logo"
-                    onClick={() => public_route("/settings")}>
+                    onClick={() => mobile_route("/settings")}>
                     <PiArrowBendDoubleUpRightLight />
                   </div>
                 </li>
@@ -216,13 +228,13 @@ const Header = () => {
                 <li className="site-header__mobile-item">
                   <div
                     className="site-header__mobile-item-left-content"
-                    onClick={() => public_route("/")}>
+                    onClick={() => mobile_route("/")}>
                     <GoSignIn />
                     <p>Login</p>
                   </div>
                   <div
                     className="site-header__mobile-right-logo"
-                    onClick={() => public_route("/")}>
+                    onClick={() => mobile_route("/")}>
                     <PiArrowBendDoubleUpRightLight />
                   </div>
                 </li>
@@ -232,13 +244,13 @@ const Header = () => {
                 <li className="site-header__mobile-item">
                   <div
                     className="site-header__mobile-item-left-content"
-                    onClick={() => public_route("/signUp")}>
+                    onClick={() => mobile_route("/signUp")}>
                     <FiUserCheck />
                     <p>Sign Up</p>
                   </div>
                   <div
                     className="site-header__mobile-right-logo"
-                    onClick={() => public_route("/signUp")}>
+                    onClick={() => mobile_route("/signUp")}>
                     <PiArrowBendDoubleUpRightLight />
                   </div>
                 </li>
