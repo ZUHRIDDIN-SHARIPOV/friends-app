@@ -1,8 +1,7 @@
 import { memo, useState, useRef } from "react";
 import "./SignUp.scss";
 import { useFormik } from "formik";
-import { BsEyeSlash } from "react-icons/bs";
-import { BsEye } from "react-icons/bs";
+import { BsEyeSlash, BsEye } from "../../assets/re-export";
 import { auth } from "../../auth/firebase";
 import { createUserWithEmailAndPassword } from "firebase/auth";
 import { Loader, useNotifications } from "../../components/re-export";

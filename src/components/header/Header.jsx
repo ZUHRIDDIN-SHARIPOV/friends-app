@@ -1,18 +1,21 @@
 import { memo, useState } from "react";
 import "./Header.scss";
-import { FaTwitter } from "react-icons/fa";
-import { TbMenu2 } from "react-icons/tb";
-import { BsLightningChargeFill, BsLightningCharge } from "react-icons/bs";
-import { VscChromeClose } from "react-icons/vsc";
-import { IoSettingsOutline } from "react-icons/io5";
-import { LiaHomeSolid } from "react-icons/lia";
 import {
+  FaTwitter,
+  TbMenu2,
+  BsLightningChargeFill,
+  BsLightningCharge,
+  VscChromeClose,
+  IoSettingsOutline,
+  LiaHomeSolid,
   PiFolderOpenLight,
   PiPhoneLight,
   PiArrowBendDoubleUpRightLight,
-} from "react-icons/pi";
-import { FiMoreVertical, FiUserCheck } from "react-icons/fi";
-import { CiLogout, CiLogin } from "react-icons/ci";
+  FiMoreVertical,
+  FiUserCheck,
+  CiLogout,
+  GoSignIn,
+} from "../../assets/re-export";
 import { NavLink, useNavigate } from "react-router-dom";
 import { auth } from "../../auth/firebase";
 import { signOut } from "firebase/auth";
@@ -216,7 +219,7 @@ const Header = () => {
                   <div
                     className="site-header__mobile-item-left-content"
                     onClick={() => public_route("/")}>
-                    <CiLogin />
+                    <GoSignIn />
                     <p>Login</p>
                   </div>
                   <div
